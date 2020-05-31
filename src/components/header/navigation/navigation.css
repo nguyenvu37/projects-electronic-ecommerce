@@ -1,0 +1,35 @@
+.navigation {
+	background: #fff;
+	border-bottom: 2px solid #e4e7ed;
+	border-top: 3px solid #d10024;
+}
+
+.navigation .responsive-nav ul {
+	display: flex;
+	flex-direction: row;
+	padding: 1.5rem 0;
+}
+
+.mr {
+	margin-right: 2rem;
+	color: #333;
+}
+
+#nav-1:hover,
+#nav-2:hover,
+#nav-3:hover,
+#nav-4:hover,
+#nav-5:hover,
+#nav-6:hover {
+	color: #d10024;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #d10024;
+	transition: all 0.3s;
+}
+
+/* 
+.navigation .responsive-nav ul li.active a {
+	color: #d10024;
+	padding-bottom: 3px;
+	border-bottom: 2px solid #d10024;
+} */

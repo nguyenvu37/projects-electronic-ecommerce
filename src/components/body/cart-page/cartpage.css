@@ -1,0 +1,61 @@
+tr .img {
+	position: relative;
+}
+
+tr .img img {
+	width: 50px;
+}
+
+tr .img:hover img {
+	position: absolute;
+	width: 300px;
+	top: -200px;
+	left: -100px;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+tr td .name-product {
+	color: rgb(7, 64, 170);
+}
+
+tr td .name-product:hover {
+	color: rgb(51, 0, 117);
+	text-decoration: none;
+	font-size: 1.2rem;
+	transition: all 0.2s;
+}
+
+.checkout button {
+	box-shadow: 3px 4px 0px 0px #899599;
+	background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color: #ededed;
+	border-radius: 15px;
+	border: 1px solid #d6bcd6;
+	display: inline-block;
+	cursor: pointer;
+	color: #3a8a9e;
+	font-family: Arial;
+	font-size: 17px;
+	font-weight: bold;
+	padding: 8px 25px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #e1e2ed;
+}
+
+.checkout button:hover {
+	background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color: #bab1ba;
+	text-decoration: none;
+}
+
+.order-btn {
+	color: #7685f7;
+}
+.order-btn:hover {
+	text-decoration: none;
+}
+.order-btn:active {
+	position: relative;
+	top: 1px;
+}

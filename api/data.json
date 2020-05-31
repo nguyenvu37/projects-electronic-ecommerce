@@ -1,0 +1,500 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "MacBook Pro (16-Inch, 16GB RAM, 512GB Storage)",
+      "img": "product01.png",
+      "imgDetail": [
+        "macbookpro1.jpg",
+        "macbookpro2.jpg",
+        "macbookpro3.jpg",
+        "macbookpro4.jpg"
+      ],
+      "newPrice": 1980,
+      "oldPrice": 1990,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 30,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "laptop",
+      "hotdeal": true
+    },
+    {
+      "id": "2",
+      "name": "COWIN E7 Active Noise Cancelling Headphones",
+      "img": "product02.png",
+      "imgDetail": [
+        "acess1.jpg",
+        "acess2.jpg",
+        "acess3.jpg",
+        "acess4.jpg"
+      ],
+      "newPrice": 69.99,
+      "oldPrice": 79.99,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 20,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "accessorie",
+      "hotdeal": true
+    },
+    {
+      "id": "3",
+      "name": "ASUS ZenBook 13 Ultra-Slim Laptop- 13.3”",
+      "img": "product03.png",
+      "imgDetail": [
+        "macbookpro1.jpg",
+        "macbookpro2.jpg",
+        "macbookpro3.jpg",
+        "macbookpro4.jpg"
+      ],
+      "newPrice": 699.99,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 20,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "laptop",
+      "hotdeal": true
+    },
+    {
+      "id": "4",
+      "name": "Dell XPS 15 laptop 15.6, 4K UHD InfinityEdge Touch",
+      "img": "dell.jpg",
+      "imgDetail": [
+        "macbookpro1.jpg",
+        "macbookpro2.jpg",
+        "macbookpro3.jpg",
+        "macbookpro4.jpg"
+      ],
+      "newPrice": 1995,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 25,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "laptop",
+      "hotdeal": true
+    },
+    {
+      "id": "5",
+      "name": "Sony Noise Cancelling Headphones WH1000XM3",
+      "img": "headphonesony2.jpg",
+      "imgDetail": [
+        "acess1.jpg",
+        "acess2.jpg",
+        "acess3.jpg",
+        "acess4.jpg"
+      ],
+      "newPrice": 99.5,
+      "oldPrice": "",
+      "status": "out stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": "",
+      "newProduct": true,
+      "discountProduct": false,
+      "category": "accessorie",
+      "hotdeal": false
+    },
+    {
+      "id": "6",
+      "name": "MSI GL65 Leopard 10SFK-062 15.6 FHD",
+      "img": "product06.png",
+      "imgDetail": [
+        "macbookpro1.jpg",
+        "macbookpro2.jpg",
+        "macbookpro3.jpg",
+        "macbookpro4.jpg"
+      ],
+      "newPrice": 1399,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 10,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "laptop",
+      "hotdeal": true
+    },
+    {
+      "id": "7",
+      "name": "Apple iPhone 11 Pro (64GB, Space Gray)",
+      "img": "iphone11pro.jpg",
+      "imgDetail": [
+        "iphone11a.jpg",
+        "iphone11b.jpg",
+        "iphone11c.jpg",
+        "iphone11d.jpg"
+      ],
+      "newPrice": 1000,
+      "oldPrice": 1049,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 10,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "smartphone",
+      "hotdeal": true
+    },
+    {
+      "id": "8",
+      "name": "Apple iPhone 11 Pro Max (64GB, Space Gray)",
+      "img": "iphone11max.jpg",
+      "imgDetail": [
+        "iphone11a.jpg",
+        "iphone11b.jpg",
+        "iphone11c.jpg",
+        "iphone11d.jpg"
+      ],
+      "newPrice": 1040,
+      "oldPrice": 1099,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": "",
+      "newProduct": true,
+      "discountProduct": false,
+      "category": "smartphone",
+      "hotdeal": false
+    },
+    {
+      "id": "9",
+      "name": "Apple iPhone XS Max (64GB, Gold)",
+      "img": "iphonexs.jpg",
+      "imgDetail": [
+        "iphone11a.jpg",
+        "iphone11b.jpg",
+        "iphone11c.jpg",
+        "iphone11d.jpg"
+      ],
+      "newPrice": 929,
+      "oldPrice": 999,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": "",
+      "newProduct": true,
+      "discountProduct": false,
+      "category": "smartphone",
+      "hotdeal": false
+    },
+    {
+      "id": "10",
+      "name": "New Apple iPhone SE (64GB, Silver)",
+      "img": "iphoneSE.jpg",
+      "imgDetail": [
+        "iphone11a.jpg",
+        "iphone11b.jpg",
+        "iphone11c.jpg",
+        "iphone11d.jpg"
+      ],
+      "newPrice": 499,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 5,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "smartphone",
+      "hotdeal": true
+    },
+    {
+      "id": "11",
+      "name": "Sony Noise Cancelling Headphones WHCH710N",
+      "img": "headphonesony1.jpg",
+      "imgDetail": [
+        "acess1.jpg",
+        "acess2.jpg",
+        "acess3.jpg",
+        "acess4.jpg"
+      ],
+      "newPrice": 90,
+      "oldPrice": 100,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 5,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "accessorie",
+      "hotdeal": true
+    },
+    {
+      "id": "12",
+      "name": "Sony MDR7506 Professional Large Diaphragm",
+      "img": "headphonesony1.png",
+      "imgDetail": [
+        "acess1.jpg",
+        "acess2.jpg",
+        "acess3.jpg",
+        "acess4.jpg"
+      ],
+      "newPrice": 94,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 5,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "accessorie",
+      "hotdeal": true
+    },
+    {
+      "id": "13",
+      "name": "Sony Alpha 700 Professional Large Diaphragm",
+      "img": "camerasony1.jpg",
+      "imgDetail": [
+        "camera1.jpg",
+        "camera2.jpg",
+        "camera3.jpg",
+        "camera4.jpg"
+      ],
+      "newPrice": 599,
+      "oldPrice": 699,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 10,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "camera"
+    },
+    {
+      "id": "14",
+      "name": "Sony Alpha a6000 Mirrorless Digital Camera 24.3MP",
+      "img": "camerasony2.jpg",
+      "imgDetail": [
+        "camera1.jpg",
+        "camera2.jpg",
+        "camera3.jpg",
+        "camera4.jpg"
+      ],
+      "newPrice": 599,
+      "oldPrice": 699,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": "",
+      "newProduct": true,
+      "discountProduct": false,
+      "category": "camera",
+      "hotdeal": false
+    },
+    {
+      "id": "15",
+      "name": "Sony FDR-AX100/B 4K Video Camera with 3.5-Inch LCD 24.3MP",
+      "img": "camerasony3.jpg",
+      "imgDetail": [
+        "camera1.jpg",
+        "camera2.jpg",
+        "camera3.jpg",
+        "camera4.jpg"
+      ],
+      "newPrice": 1129,
+      "oldPrice": 1199,
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 10,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "camera",
+      "hotdeal": true
+    },
+    {
+      "id": "16",
+      "name": "Sony Alpha a6000 Mirrorless Digital Camera",
+      "img": "camerasony4.jpg",
+      "imgDetail": [
+        "camera1.jpg",
+        "camera2.jpg",
+        "camera3.jpg",
+        "camera4.jpg"
+      ],
+      "newPrice": 648,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": "",
+      "newProduct": true,
+      "discountProduct": false,
+      "category": "camera",
+      "hotdeal": false
+    },
+    {
+      "id": "17",
+      "name": "ASUS ZenBook 15 Ultra-Slim Laptop- 15.5”",
+      "img": "product03.png",
+      "imgDetail": [
+        "macbookpro1.jpg",
+        "macbookpro2.jpg",
+        "macbookpro3.jpg",
+        "macbookpro4.jpg"
+      ],
+      "newPrice": 899.99,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 20,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "laptop",
+      "hotdeal": true
+    },
+    {
+      "id": "18",
+      "name": "Sony Noise Cancelling Headphones SH4000XM3",
+      "img": "headphonesony3.jpg",
+      "imgDetail": [
+        "acess1.jpg",
+        "acess2.jpg",
+        "acess3.jpg",
+        "acess4.jpg"
+      ],
+      "newPrice": 89.9,
+      "oldPrice": 99.9,
+      "status": "out stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": "",
+      "newProduct": true,
+      "discountProduct": false,
+      "category": "accessorie",
+      "hotdeal": false
+    },
+    {
+      "id": "19",
+      "name": "New Apple iPhone 8Plus (64GB, Silver)",
+      "img": "iphoneSE.jpg",
+      "imgDetail": [
+        "iphone11a.jpg",
+        "iphone11b.jpg",
+        "iphone11c.jpg",
+        "iphone11d.jpg"
+      ],
+      "newPrice": 499,
+      "oldPrice": "",
+      "status": "in stock",
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "qty": 100,
+      "discount": 10,
+      "newProduct": true,
+      "discountProduct": true,
+      "category": "smartphone",
+      "hotdeal": true
+    }
+  ],
+  "cart": [
+    {
+      "id": "361bdae-bf6-d6f-2d5d-e22d31fe1ee3",
+      "idProduct": "9",
+      "name": "Apple iPhone XS Max (64GB, Gold)",
+      "img": "iphonexs.jpg",
+      "newPrice": 929,
+      "oldPrice": 999,
+      "status": "paid",
+      "discount": "",
+      "qty": 3,
+      "total": 2787
+    },
+    {
+      "id": "ab20e3-288d-a86d-3aa7-bedc16d558",
+      "idProduct": "7",
+      "name": "Apple iPhone 11 Pro (64GB, Space Gray)",
+      "img": "iphone11pro.jpg",
+      "newPrice": 1000,
+      "oldPrice": 1049,
+      "status": "unpaid",
+      "discount": 10,
+      "qty": 6,
+      "total": 6000
+    },
+    {
+      "id": "07e648-e4bb-630b-3f06-2a00f1845035",
+      "idProduct": "15",
+      "name": "Sony FDR-AX100/B 4K Video Camera with 3.5-Inch LCD 24.3MP",
+      "img": "camerasony3.jpg",
+      "newPrice": 1129,
+      "oldPrice": 1199,
+      "status": "paid",
+      "discount": 10,
+      "qty": 2,
+      "total": 2258
+    },
+    {
+      "id": "bbb752-fb1-3504-1dee-5ea2636f535a",
+      "idProduct": "1",
+      "name": "MacBook Pro (16-Inch, 16GB RAM, 512GB Storage)",
+      "img": "product01.png",
+      "newPrice": 1980,
+      "oldPrice": 1990,
+      "status": "paid",
+      "discount": 30,
+      "qty": 1,
+      "total": 1980
+    },
+    {
+      "id": "0b0fa-cb0-76c3-4da-0a4d71ffb3ca",
+      "idProduct": "8",
+      "name": "Apple iPhone 11 Pro Max (64GB, Space Gray)",
+      "img": "iphone11max.jpg",
+      "newPrice": 1040,
+      "oldPrice": 1099,
+      "status": "unpaid",
+      "discount": "",
+      "qty": 5,
+      "total": 5200
+    },
+    {
+      "id": "aba668-fa7-8887-e188-02aa42db46a",
+      "idProduct": "14",
+      "name": "Sony Alpha a6000 Mirrorless Digital Camera 24.3MP",
+      "img": "camerasony2.jpg",
+      "newPrice": 599,
+      "oldPrice": 699,
+      "status": "paid",
+      "discount": "",
+      "qty": 1,
+      "total": 599
+    },
+    {
+      "id": "e87cd-df7d-de75-70fe-ac716332ec2",
+      "idProduct": "2",
+      "name": "COWIN E7 Active Noise Cancelling Headphones",
+      "img": "product02.png",
+      "newPrice": 69.99,
+      "oldPrice": 79.99,
+      "status": "unpaid",
+      "discount": 20,
+      "qty": 3,
+      "total": 209.96999999999997
+    },
+    {
+      "id": "eba1b3e-d72c-a3d6-e87b-d25f4ddbfab",
+      "idProduct": "3",
+      "name": "ASUS ZenBook 13 Ultra-Slim Laptop- 13.3”",
+      "img": "product03.png",
+      "newPrice": 699.99,
+      "oldPrice": "",
+      "status": "unpaid",
+      "discount": 20,
+      "qty": 1,
+      "total": 699.99
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+tr .img {
+	position: relative;
+}
+
+tr .img img {
+	width: 50px;
+}
+
+tr .img:hover img {
+	position: absolute;
+	width: 300px;
+	top: -200px;
+	left: -100px;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+
+tr td .name-product {
+	color: rgb(7, 64, 170);
+}
+
+tr td .name-product:hover {
+	color: rgb(51, 0, 117);
+	text-decoration: none;
+	font-size: 1.2rem;
+	transition: all 0.2s;
+}
+
+.order-btn {
+	color: #7685f7;
+}
+.order-btn:hover {
+	text-decoration: none;
+}
+.order-btn:active {
+	position: relative;
+	top: 1px;
+}
