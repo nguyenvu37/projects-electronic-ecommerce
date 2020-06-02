@@ -40,9 +40,10 @@ function AddToCart (props) {
       if (dataCarts.length > 0) {
         for (let i = 0; i < dataCarts.length; i++) {
           if (dataCarts[i].idProduct === dataCart.idProduct) {
-            index = i
-            console.log('index', index)
-            return index
+            if(dataCarts[i].status === 'unpaid') {
+              index = i
+              return index
+            } else index = -1
           } else index = -1
         }
       }

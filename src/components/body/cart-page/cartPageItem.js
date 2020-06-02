@@ -64,11 +64,11 @@ const CartPageItem = (props) => {
       } 
   }
 
-  let oldPrice = data.oldPrice ? `$${data.oldPrice}` : '';
+  let oldPrice = data.oldPrice ? `$${formatNumberUSD(data.oldPrice)}` : '';
   let statusClassName = data.status === 'unpaid' ? 'text-warning' : 'text-danger';
   let disabledProduct = data.status === 'paid' ? true : false;
   return (
-    <tr>
+  <tr>
       <td>{index+1}</td>
       <td className="img"><img src={require(`./../../../img/${data.img}`)} alt="" /></td>
       <td><Link to={`/detail/${data.idProduct}`} className="name-product">{data.name}</Link></td>
@@ -76,7 +76,7 @@ const CartPageItem = (props) => {
         className='text-success'
         style={{ fontSize: '20px', fontWeight: '600' }}
       >
-        ${data.newPrice}
+        ${formatNumberUSD(data.newPrice)}
       </td>
       <td
         className='text-secondary'

@@ -4,7 +4,9 @@ import callApi from '../../../common/callApi'
 import CheckoutItem from './checkoutItem'
 import MyPagination from '../../../common/pagination'
 import './checkout.css'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { formatNumberUSD } from '../../../common/formatNumber'
+import { connect } from 'react-redux'
 
 const CheckoutPage = props => {
   const [dataCart, setDataCart] = useState([])
@@ -17,11 +19,12 @@ const CheckoutPage = props => {
   const fetchData = async () => {
     let subTotals = 0
     let totals = []
-    await callApi(`cart?status=${'paid'}`, 'get', null).then(res => {
+
+    await callApi(`data-checkout`, 'get', null).then(res => {
       if (res && res.data.length > 0) {
         const dataTotals = [...res.data]
         let id_dataCart = []
-        dataTotals.filter(item => id_dataCart.push(item.id))
+        dataTotals.map(item => id_dataCart.push(item.id))
         let total = dataTotals.map(item => item.total)
         totals.push(total)
         subTotals = totals[0].reduce((a, b) => {
@@ -31,14 +34,43 @@ const CheckoutPage = props => {
       } else {
         totals = []
         subTotals = 0
+        setDataCart([])
       }
       setSubTotal(subTotals)
     })
   }
 
+  // const deleteCart = async arr => {
+  //   console.log('test deleteCart')
+  //   return await arr.forEach(item => callApi(`cart/${item.id}`, 'delete', null))
+  // }
+
+  // useEffect(() => {
+  //   let subTotals = 0
+  //   let totals = []
+  //   let id_dataCart = []
+  //   let dataCheckout = props.checkout
+  //     console.log('dataCheckout', dataCheckout)
+  //     dataCheckout.map(item => id_dataCart.push(item.id))
+  //     let total = dataCheckout.map(item => item.total)
+  //     totals.push(total)
+  //     subTotals = totals[0].reduce((a, b) => {
+  //       return a + b
+  //     }, 0)
+  //     setSubTotal(subTotals)
+      
+  //     setDataCart([...dataCheckout])
+    
+  // }, [])
+
   useEffect(() => {
     fetchData()
-  }, [])
+    callApi(`cart`, 'get', null).then(res => {
+      if (res && res.data.length>0) {
+        // deleteCart([...res.data]);
+      }
+    })
+  }, [props.checkout])
 
   const nextPage = number => {
     setIndexDataRender(number * _limit)
@@ -115,7 +147,7 @@ const CheckoutPage = props => {
                     className='text-danger'
                     style={{ fontWeight: '600', fontSize: '2.5rem' }}
                   >
-                    ${subTotal}
+                    ${formatNumberUSD(subTotal)}
                   </h4>
                 </div>
                 <div className='container mt-5'>
@@ -133,19 +165,26 @@ const CheckoutPage = props => {
         </div>
       </div>
       <div className='container-fluid'>
-          <div
-            className='order float-right'
-            style={{ fontSize: '1.2rem', fontWeight: '600', color: '#7685f7' }}
-          >
-            <Link to='/my-cart' className='order-btn ml-2'>
-              <i className='fas fa-plus'></i> Your Cart
-            </Link>
-          </div>
+        <div
+          className='order float-right'
+          style={{ fontSize: '1.2rem', fontWeight: '600', color: '#7685f7' }}
+        >
+          <Link to='/my-cart' className='order-btn ml-2'>
+            <i className='fas fa-arrow-left'></i> Your Cart
+          </Link>
         </div>
+      </div>
     </div>
   ) : (
     <Waitting custom={{ position: 'relative', top: '20px' }} />
   )
 }
 
-export default CheckoutPage
+const mapStateToProps = state => {
+  console.log('state checkout', state)
+  return {
+    checkout: state.checkout
+  }
+}
+
+export default connect(mapStateToProps, null)(CheckoutPage)

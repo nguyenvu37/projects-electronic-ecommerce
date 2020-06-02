@@ -26,6 +26,18 @@ tr td .name-product:hover {
 	transition: all 0.2s;
 }
 
+.nothing-cart {
+	min-height: 300px;
+}
+
+.nothing-cart h2 {
+	margin-top: 100px;
+}
+
+.nothing-cart button {
+	margin-top: 40px;
+}
+
 .checkout button {
 	box-shadow: 3px 4px 0px 0px #899599;
 	background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
@@ -41,6 +53,7 @@ tr td .name-product:hover {
 	padding: 8px 25px;
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #e1e2ed;
+	outline: none;
 }
 
 .checkout button:hover {
@@ -51,11 +64,14 @@ tr td .name-product:hover {
 
 .order-btn {
 	color: #7685f7;
+	outline: none;
 }
 .order-btn:hover {
 	text-decoration: none;
+	outline: none;
 }
 .order-btn:active {
 	position: relative;
 	top: 1px;
+	outline: none;
 }

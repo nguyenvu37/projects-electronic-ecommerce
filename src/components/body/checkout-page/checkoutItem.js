@@ -1,19 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import { formatNumberUSD } from '../../../common/formatNumber';
 
 const CheckoutItem = (props) => {
     const data = props.data;
     const index = props.index;
     const [total, setTotal] = useState(0);
+    let oldPrice = data.oldPrice ? `$${formatNumberUSD(data.oldPrice)}` : '';
+    let statusClassName = data.status === 'unpaid' ? 'text-warning' : 'text-danger';
+    let qty = Math.floor(data.total / data.newPrice);
 
 
     useEffect(() => {
-        setTotal(data.qty * data.newPrice);
-      }, [data.qty, data.newPrice])
+        setTotal(qty * data.newPrice);
+      }, [qty, data.newPrice])
 
 
-      let oldPrice = data.oldPrice ? `$${data.oldPrice}` : '';
-      let statusClassName = data.status === 'unpaid' ? 'text-warning' : 'text-danger';
+      
 
       return (
         <tr>
@@ -24,7 +27,7 @@ const CheckoutItem = (props) => {
             className='text-success'
             style={{ fontSize: '20px', fontWeight: '600' }}
           >
-            ${data.newPrice}
+            ${formatNumberUSD(data.newPrice)}
           </td>
           <td
             className='text-secondary'
@@ -37,13 +40,13 @@ const CheckoutItem = (props) => {
             {oldPrice}
           </td>
           <td style={{fontSize: '1.2rem', fontWeight: '600', color: 'violet'}}>
-            {data.qty}
+            {qty}
           </td>
           <td
             className='text-success'
             style={{ fontSize: '20px', fontWeight: '600' }}
           >
-            ${total}
+            ${formatNumberUSD(total)}
           </td>
           <td className={`text-uppercase ${statusClassName}`} style={{fontWeight:'600'}}>
             {data.status}

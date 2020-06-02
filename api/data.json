@@ -401,79 +401,7 @@
   ],
   "cart": [
     {
-      "id": "361bdae-bf6-d6f-2d5d-e22d31fe1ee3",
-      "idProduct": "9",
-      "name": "Apple iPhone XS Max (64GB, Gold)",
-      "img": "iphonexs.jpg",
-      "newPrice": 929,
-      "oldPrice": 999,
-      "status": "paid",
-      "discount": "",
-      "qty": 3,
-      "total": 2787
-    },
-    {
-      "id": "ab20e3-288d-a86d-3aa7-bedc16d558",
-      "idProduct": "7",
-      "name": "Apple iPhone 11 Pro (64GB, Space Gray)",
-      "img": "iphone11pro.jpg",
-      "newPrice": 1000,
-      "oldPrice": 1049,
-      "status": "unpaid",
-      "discount": 10,
-      "qty": 6,
-      "total": 6000
-    },
-    {
-      "id": "07e648-e4bb-630b-3f06-2a00f1845035",
-      "idProduct": "15",
-      "name": "Sony FDR-AX100/B 4K Video Camera with 3.5-Inch LCD 24.3MP",
-      "img": "camerasony3.jpg",
-      "newPrice": 1129,
-      "oldPrice": 1199,
-      "status": "paid",
-      "discount": 10,
-      "qty": 2,
-      "total": 2258
-    },
-    {
-      "id": "bbb752-fb1-3504-1dee-5ea2636f535a",
-      "idProduct": "1",
-      "name": "MacBook Pro (16-Inch, 16GB RAM, 512GB Storage)",
-      "img": "product01.png",
-      "newPrice": 1980,
-      "oldPrice": 1990,
-      "status": "paid",
-      "discount": 30,
-      "qty": 1,
-      "total": 1980
-    },
-    {
-      "id": "0b0fa-cb0-76c3-4da-0a4d71ffb3ca",
-      "idProduct": "8",
-      "name": "Apple iPhone 11 Pro Max (64GB, Space Gray)",
-      "img": "iphone11max.jpg",
-      "newPrice": 1040,
-      "oldPrice": 1099,
-      "status": "unpaid",
-      "discount": "",
-      "qty": 5,
-      "total": 5200
-    },
-    {
-      "id": "aba668-fa7-8887-e188-02aa42db46a",
-      "idProduct": "14",
-      "name": "Sony Alpha a6000 Mirrorless Digital Camera 24.3MP",
-      "img": "camerasony2.jpg",
-      "newPrice": 599,
-      "oldPrice": 699,
-      "status": "paid",
-      "discount": "",
-      "qty": 1,
-      "total": 599
-    },
-    {
-      "id": "e87cd-df7d-de75-70fe-ac716332ec2",
+      "id": "2cab083-0ae-018-38c-32e70ac74e46",
       "idProduct": "2",
       "name": "COWIN E7 Active Noise Cancelling Headphones",
       "img": "product02.png",
@@ -481,20 +409,94 @@
       "oldPrice": 79.99,
       "status": "unpaid",
       "discount": 20,
-      "qty": 3,
-      "total": 209.96999999999997
+      "qty": 1,
+      "total": 69.99
     },
     {
-      "id": "eba1b3e-d72c-a3d6-e87b-d25f4ddbfab",
-      "idProduct": "3",
-      "name": "ASUS ZenBook 13 Ultra-Slim Laptop- 13.3”",
-      "img": "product03.png",
-      "newPrice": 699.99,
+      "id": "33f1234-c0f0-5cd0-a85-007df6f3d54c",
+      "idProduct": "5",
+      "name": "Sony Noise Cancelling Headphones WH1000XM3",
+      "img": "headphonesony2.jpg",
+      "newPrice": 99.5,
       "oldPrice": "",
       "status": "unpaid",
+      "discount": "",
+      "qty": 1,
+      "total": 99.5
+    },
+    {
+      "id": "623c084-ce6-584a-ac61-00da6e57afc",
+      "idProduct": "11",
+      "name": "Sony Noise Cancelling Headphones WHCH710N",
+      "img": "headphonesony1.jpg",
+      "newPrice": 90,
+      "oldPrice": 100,
+      "status": "unpaid",
+      "discount": 5,
+      "qty": 1,
+      "total": 90
+    }
+  ],
+  "data-checkout": [
+    {
+      "id": "08b684c-d426-d47b-6781-477234c1fd50",
+      "idProduct": "2",
+      "name": "COWIN E7 Active Noise Cancelling Headphones",
+      "img": "product02.png",
+      "newPrice": 69.99,
+      "oldPrice": 79.99,
+      "status": "paid",
       "discount": 20,
       "qty": 1,
-      "total": 699.99
+      "total": 69.99
+    },
+    {
+      "id": "7f32b2-6f87-1535-72c5-b686daa00520",
+      "idProduct": "11",
+      "name": "Sony Noise Cancelling Headphones WHCH710N",
+      "img": "headphonesony1.jpg",
+      "newPrice": 90,
+      "oldPrice": 100,
+      "status": "paid",
+      "discount": 5,
+      "qty": 1,
+      "total": 90
+    },
+    {
+      "id": "2adf23-16a4-11a3-e1fd-d23858431d70",
+      "idProduct": "5",
+      "name": "Sony Noise Cancelling Headphones WH1000XM3",
+      "img": "headphonesony2.jpg",
+      "newPrice": 99.5,
+      "oldPrice": "",
+      "status": "paid",
+      "discount": "",
+      "qty": 1,
+      "total": 99.5
+    },
+    {
+      "id": "2cab083-0ae-018-38c-32e70ac74e46",
+      "idProduct": "2",
+      "name": "COWIN E7 Active Noise Cancelling Headphones",
+      "img": "product02.png",
+      "newPrice": 69.99,
+      "oldPrice": 79.99,
+      "status": "paid",
+      "discount": 20,
+      "qty": 1,
+      "total": 69.99
+    },
+    {
+      "id": "623c084-ce6-584a-ac61-00da6e57afc",
+      "idProduct": "11",
+      "name": "Sony Noise Cancelling Headphones WHCH710N",
+      "img": "headphonesony1.jpg",
+      "newPrice": 90,
+      "oldPrice": 100,
+      "status": "paid",
+      "discount": 5,
+      "qty": 1,
+      "total": 90
     }
   ]
 }

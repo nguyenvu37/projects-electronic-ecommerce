@@ -3,19 +3,19 @@ import CartPageItem from './cartPageItem'
 import callApi from '../../../common/callApi'
 import './cartpage.css'
 import MyPagination from '../../../common/pagination'
-import Waitting from '../../../common/waiting'
+// import Waitting from '../../../common/waiting'
 import { connect } from 'react-redux'
 import { onDeleteProduct } from '../../../components/action/action'
 import { onCheckout } from '../../../components/action/action'
 import { Link } from 'react-router-dom'
-import {formatNumberUSD} from '../../../common/formatNumber'
+import { formatNumberUSD } from '../../../common/formatNumber'
 
 function CartPage (props) {
   const [dataCart, setDataCart] = useState([])
   const [subTotal, setSubTotal] = useState(0)
   const [total, setTotal] = useState(0)
-  const [idDataCart, setIdDataCart] = useState([])
-  const [new_data, setNew_data] = useState([])
+  // const [idDataCart, setIdDataCart] = useState([])
+  const [checkoutData, setCheckoutData] = useState('')
 
   const _limit = 6
   const [currentPage, setCurrentPage] = useState(1)
@@ -47,26 +47,17 @@ function CartPage (props) {
       if (res && res.data.length > 0) {
         const dataTotals = [...res.data]
         let id_dataCart = []
-        let data = []
         dataTotals.filter(item => id_dataCart.push(item.id))
         let total = dataTotals.map(item => item.total)
         totals.push(total)
         subTotals = totals[0].reduce((a, b) => {
           return a + b
         }, 0)
-        setIdDataCart([id_dataCart])
-        dataTotals.filter(item => {
-          if (item.status === 'unpaid') {
-            data.push(item)
-          }
-          return data
-        })
-        console.log('data', data)
-        setDataCart([...data])
+        setDataCart([...dataTotals])
       } else {
         totals = []
         subTotals = 0
-        setIdDataCart([])
+        setDataCart([])
       }
 
       setSubTotal(subTotals)
@@ -75,10 +66,15 @@ function CartPage (props) {
 
   useEffect(() => {
     fetchData()
+    return () => {
+      setDataCart([])
+    }
   }, [])
 
   useEffect(() => {
     funcSubTotal(total)
+    return () => {
+    }
   }, [total])
 
   const onPlusQty = props => {
@@ -109,29 +105,44 @@ function CartPage (props) {
     }
   }
 
-  const onCheckout = () => {
-    callApi(`cart`, 'get', null).then(res => {
-      if (res && res.data.length > 0) {
-        let new_dataCart = [...res.data]
-        let new_data = []
-        let idArr = idDataCart[0]
-        new_dataCart.filter(item => new_data.push({ ...item, status: 'paid' }))
-        if (window.confirm('You want to pay?')) {
-          for (let i = 0; i < idArr.length; i++) {
-            callApi(`cart/${idArr[i]}`, 'put', new_data[i])
-          }
-          setNew_data([...new_data])
-        }
-        props.handleCheckout('checkout')
-        props.history.push('/checkout')
-      }
+  const addToCheckout = (arr) => {
+    return arr.forEach(item => {
+      callApi(`data-checkout`, 'post', {...item, status: 'paid'})
+      
+      .then(setCheckoutData(item))
+      (callApi(`cart`, 'delete', null))
     })
   }
 
+  const onCheckout = () => {
+    if (dataCart.length > 0) {
+      callApi(`cart`, 'get', null).then(res => {
+        if (res && res.data.length > 0) {
+          if (window.confirm('You want to pay?')) {
+            let new_dataCart = [...res.data]
+            let new_data = []
+            new_dataCart.forEach(item => new_data.push({...item, status: 'paid'}))
+            addToCheckout(new_dataCart)
+            // new_dataCart.forEach(async item => aw 
+            props.handleCheckout([...new_data])
+            props.history.push('/checkout')
+          }
+        } else addToCheckout([])
+      })
+    }
+  }
+
   useEffect(() => {
-    setDataCart(new_data)
-    return () => {}
-  }, [new_data])
+    callApi(`cart`, 'get', null).then(res => {
+      if (res && res.data.length > 0) {
+        let dataCart = [...res.data]
+        console.log('dataCart', dataCart)
+        setDataCart([...res.data])
+      } else setDataCart([])
+    })
+
+    return () => {setDataCart([])}
+  }, [checkoutData])
 
   const nextPage = number => {
     setIndexDataRender(number * _limit)
@@ -245,16 +256,23 @@ function CartPage (props) {
         </div>
       </div>
       <div className='container-fluid'>
-        <div className='order float-right' style={{ fontSize: '1.2rem', fontWeight: '600', color: '#7685f7' }}>
+        <div
+          className='order float-right'
+          style={{ fontSize: '1.2rem', fontWeight: '600', color: '#7685f7' }}
+        >
           <Link to='/checkout' className='order-btn ml-2'>
-          <i className='fas fa-plus'></i>{' '}
-          Your Order
+            Your Order <i className='fas fa-arrow-right'></i>
           </Link>
         </div>
       </div>
     </div>
   ) : (
-    <Waitting custom={{ position: 'relative', top: '20px' }} />
+    <div className='text-center mt-4 nothing-cart'>
+      <h2>Nothing in the cart</h2>
+      <Link to='/'>
+        <button className='btn btn-success'>Shop Now</button>
+      </Link>
+    </div>
   )
 }
 
