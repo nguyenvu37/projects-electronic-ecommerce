@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
-import callApi from '../../../common/callApi';
 import { Link } from 'react-router-dom';
 import { NotificationManager} from 'react-notifications';
 import {formatNumberUSD} from '../../../common/formatNumber';
+import {db} from '../../../firebase';
 
 const CartPageItem = (props) => {
   const data = props.data;
@@ -24,7 +24,12 @@ const CartPageItem = (props) => {
 
   const editQtyData = (id, qty) => {
     let total = qty* data.newPrice;
-    callApi(`cart/${id}`, 'put', {...data, qty: qty, total: total})
+    db.collection("cart").doc(id).update({
+      ...data,
+      qty: qty,
+      total: total
+     });
+    // callApi(`cart/${id}`, 'put', {...data, qty: qty, total: total})
   }
 
   function onMinusQty() {
@@ -55,11 +60,10 @@ const CartPageItem = (props) => {
 
   function onDeleteProduct(id) {
       if(window.confirm('Do you want to delete this product?')){
-        callApi(`cart/${id}`, 'delete', null).then(res => {
-          if(res.status === 200) {
-            props.onDeleteProduct(id)
-            return NotificationManager.success('Deleted successfully.');
-          } else return;
+        db.collection("cart").doc(id).delete()
+        .then(() => {
+          props.onDeleteProduct(id)
+          NotificationManager.success('Deleted successfully.');
         })
       } 
   }

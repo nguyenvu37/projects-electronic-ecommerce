@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import callApi from '../../../../common/callApi'
 import { withRouter } from 'react-router-dom'
+import {db} from '../../../../firebase'
 
 const ImgDetail = props => {
   const [imgProducts, setImgProducts] = useState([])
@@ -11,15 +11,23 @@ const ImgDetail = props => {
   useEffect(() => {
     console.log('props.match', props.match.params.id)
     const fetchData = async () => {
-      await callApi(`products?id=${props.match.params.id}`, 'get', null).then(
-        res => {
-          if (res) {
-            if (res.data.length > 0) {
-              setImgProducts([...res.data[0].imgDetail])
-            }
+      let products = [];
+      let data = [];
+      await db.collection(`products`)
+        .get()
+        .then(snapshot => snapshot.docs.map(doc => {
+          products.push({...doc.data(), id: doc.id})
+          
+        }))
+        console.log('products', products)
+
+        products.filter(item => {
+          if(item.id === props.match.params.id) {
+            data.push({...item})
           }
-        }
-      )
+        })
+        console.log('data', data)
+        setImgProducts([...data[0].imgDetail])
     }
     fetchData()
   }, [props.match.params.id])

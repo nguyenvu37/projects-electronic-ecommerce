@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import callApi from '../../../common/callApi';
 import { Link } from 'react-router-dom';
 import MyPagination from '../../../common/pagination';
 import Waitting from './../../../common/waiting';
 import AddToCart from '../../../common/add-to-cart/addToCart';
+import {db} from '../../../firebase';
 
 const HotDealItem = (props) => {
 	const _limit = 6;
@@ -13,16 +13,26 @@ const HotDealItem = (props) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			await callApi(`products?hotdeal=${true}`, 'get', null).then((res) => {
-				if (res) {
-					if (res.data.length > 0) {
-						setProducts([ ...res.data ]);
-						setIndexDataRender(0);
-						setCurrentPage(1);
-					} else setProducts([]);
-				} else setProducts([]);
-			});
-		};
+			let products = [];
+			await db.collection('products')
+			  .get()
+			  .then(snapshot => snapshot.docs.map(doc => {
+				products.push({...doc.data(), id: doc.id})
+				
+			  }))
+			  let data = [];
+			  console.log('products', products)
+			  products.filter(item => {
+				if (item.hotdeal === true) data.push(item)
+			  });
+	  
+			  console.log('data', data)
+			  if (data.length > 0) {
+				setProducts([...data]);
+				setIndexDataRender(0);
+				setCurrentPage(1);
+			  } else setProducts([]);
+		  }
 		fetchData();
 	}, []);
 

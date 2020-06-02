@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import Slider from 'react-slick';
-import callApi from '../../../../common/callApi';
 import {withRouter, Link} from 'react-router-dom';
 import AddToCart from '../../../../common/add-to-cart/addToCart';
+import { db } from '../../../../firebase'
 
 const ItemRelated = (props) => {
 
@@ -11,33 +11,56 @@ const ItemRelated = (props) => {
 
   useEffect(() => {
     const fetchCategory = async () => {
-      await callApi(`products?id=${props.match.params.id}`, 'get', null).then(res => {
-        if(res) {
-          if(res.data.length > 0) {
-            console.log('res.data', res.data);
-            setCategory(res.data[0].category);
-          }
+      let products = []
+      let data = []
+      await db
+        .collection(`products`)
+        .get()
+        .then(snapshot =>
+          snapshot.docs.map(doc => {
+            products.push({ ...doc.data(), id: doc.id })
+          })
+        )
+
+      products.filter(item => {
+        if (item.id === props.match.params.id) {
+          data.push({ ...item })
         }
       })
+
+      setCategory(data[0].category)
     }
     fetchCategory();
   }, [props.match.params.id]);
 
   useEffect(() => {
     const fetchData = async () => {
-      await callApi(`products?category=${category}`, 'get', null).then(res => {
-        if(res) {
-          if(res.data.length > 0) {
-            setData([...res.data])
-          }
+      let products = []
+      let data = []
+      await db
+        .collection(`products`)
+        .get()
+        .then(snapshot =>
+          snapshot.docs.map(doc => {
+            products.push({ ...doc.data(), id: doc.id })
+          })
+        )
+
+      products.filter(item => {
+        if (item.category === category) {
+          data.push({ ...item })
         }
       })
+
+      if(data.length> 0) {
+        setData([...data])
+      } else setData([])
     }
     fetchData();
   }, [category]);
 
   let settings = {
-    infinite: false,
+    infinite: true,
     autoplay: true,
     autoplaySpeed: 2000,
     arrows: true,

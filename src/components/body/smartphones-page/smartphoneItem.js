@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import callApi from '../../../common/callApi'
 import { Link } from 'react-router-dom'
 import Waitting from './../../../common/waiting'
 import AddToCart from '../../../common/add-to-cart/addToCart'
+import {db} from '../../../firebase'
 
 const SmartphoneItem = props => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      await callApi(`products?category=smartphone`, 'get', null).then(res => {
-        if (res) {
-          if (res.data.length > 0) {
-            setProducts([...res.data])
-          }
-        }
-      })
+      let products = [];
+      await db.collection('products')
+        .get()
+        .then(snapshot => snapshot.docs.map(doc => {
+          products.push({...doc.data(), id: doc.id})
+          
+        }))
+        let data = [];
+        console.log('products', products)
+        products.filter(item => {
+           if (item.category === 'smartphone') data.push(item)
+           return true
+        });
+
+        console.log('data', data)
+        setProducts([...data]);
     }
     fetchData()
   }, [])

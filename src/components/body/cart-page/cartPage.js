@@ -3,65 +3,45 @@ import CartPageItem from './cartPageItem'
 import callApi from '../../../common/callApi'
 import './cartpage.css'
 import MyPagination from '../../../common/pagination'
-// import Waitting from '../../../common/waiting'
 import { connect } from 'react-redux'
 import { onDeleteProduct } from '../../../components/action/action'
 import { onCheckout } from '../../../components/action/action'
 import { Link } from 'react-router-dom'
 import { formatNumberUSD } from '../../../common/formatNumber'
+import {db} from '../../../firebase'
 
 function CartPage (props) {
   const [dataCart, setDataCart] = useState([])
   const [subTotal, setSubTotal] = useState(0)
   const [total, setTotal] = useState(0)
-  // const [idDataCart, setIdDataCart] = useState([])
   const [checkoutData, setCheckoutData] = useState('')
 
   const _limit = 6
   const [currentPage, setCurrentPage] = useState(1)
   const [indexDataRender, setIndexDataRender] = useState(0)
 
-  const funcSubTotal = total => {
-    let subTotals = 0
-    let totals = []
-    if (total) {
-      callApi(`cart`, 'get', null).then(res => {
-        if (res && res.data.length > 0) {
-          const dataTotal = [...res.data]
-          let total = dataTotal.map(item => item.total)
-          totals.push(total)
-        } else totals = []
-        console.log('totals', totals)
-        subTotals = totals[0].reduce((a, b) => {
-          return a + b
-        }, 0)
-        setSubTotal(subTotals)
-      })
-    } else return
-  }
-
   const fetchData = async () => {
     let subTotals = 0
     let totals = []
-    await callApi(`cart`, 'get', null).then(res => {
-      if (res && res.data.length > 0) {
-        const dataTotals = [...res.data]
-        let id_dataCart = []
-        dataTotals.filter(item => id_dataCart.push(item.id))
-        let total = dataTotals.map(item => item.total)
-        totals.push(total)
-        subTotals = totals[0].reduce((a, b) => {
-          return a + b
-        }, 0)
-        setDataCart([...dataTotals])
-      } else {
-        totals = []
-        subTotals = 0
-        setDataCart([])
-      }
+    let data = []
+    await db.collection("cart")
+        .get()
+        .then(snapshot => snapshot.docs.map(doc => {
+          data.push({...doc.data(), id: doc.id})
+        }))
+        if (data.length>0) {
+          let total = data.map(item => item.total)
+          totals.push(total)
+          console.log('totals', totals)
+          subTotals = totals[0].reduce((a,b) => a+b,0)
 
-      setSubTotal(subTotals)
-    })
+          setDataCart([...data])
+        } else {
+          totals = []
+          subTotals = 0
+          setDataCart([])
+        }
+        setSubTotal(subTotals)
   }
 
   useEffect(() => {
@@ -71,21 +51,19 @@ function CartPage (props) {
     }
   }, [])
 
-  useEffect(() => {
-    funcSubTotal(total)
-    return () => {
-    }
-  }, [total])
-
   const onPlusQty = props => {
     console.log('props', props)
     let total = props.qty * props.price
+    let subTotals = subTotal + props.price;
+    setSubTotal(subTotals)
     setTotal(total)
   }
 
   const onMinusQty = props => {
     console.log('props', props)
     let total = props.qty * props.price
+    let subTotals = subTotal - props.price;
+    setSubTotal(subTotals)
     setTotal(total)
   }
 
@@ -107,28 +85,47 @@ function CartPage (props) {
 
   const addToCheckout = (arr) => {
     return arr.forEach(item => {
-      callApi(`data-checkout`, 'post', {...item, status: 'paid'})
+      db.collection("data-checkout").add({...item, status: paid})
+      setCheckoutData({...item})
+      // callApi(`data-checkout`, 'post', {...item, status: 'paid'})
       
-      .then(setCheckoutData(item))
-      (callApi(`cart`, 'delete', null))
+      // .then(setCheckoutData(item))
+      // (callApi(`cart`, 'delete', null))
     })
   }
 
   const onCheckout = () => {
     if (dataCart.length > 0) {
-      callApi(`cart`, 'get', null).then(res => {
-        if (res && res.data.length > 0) {
-          if (window.confirm('You want to pay?')) {
-            let new_dataCart = [...res.data]
-            let new_data = []
-            new_dataCart.forEach(item => new_data.push({...item, status: 'paid'}))
-            addToCheckout(new_dataCart)
-            // new_dataCart.forEach(async item => aw 
-            props.handleCheckout([...new_data])
-            props.history.push('/checkout')
+      let data = [];
+      db.collection("cart")
+        .get()
+        .then(snapshot => snapshot.docs.map(doc => {
+          data.push({...doc.data(), id: doc.id})
+
+          if(data.length>0) {
+            if(window.confirm('You want to pay?')) {
+              let new_dataCart = [...res.data]
+              let new_data = []
+              new_dataCart.forEach(item => new_data.push({...item, status: 'paid'}))
+              addToCheckout(new_dataCart)
+              props.handleCheckout([...new_data])
+            }
           }
-        } else addToCheckout([])
-      })
+        }))
+
+      // callApi(`cart`, 'get', null).then(res => {
+      //   if (res && res.data.length > 0) {
+      //     if (window.confirm('You want to pay?')) {
+      //       let new_dataCart = [...res.data]
+      //       let new_data = []
+      //       new_dataCart.forEach(item => new_data.push({...item, status: 'paid'}))
+      //       addToCheckout(new_dataCart)
+      //       // new_dataCart.forEach(async item => aw 
+      //       props.handleCheckout([...new_data])
+      //       props.history.push('/checkout')
+      //     }
+      //   } else addToCheckout([])
+      // })
     }
   }
 

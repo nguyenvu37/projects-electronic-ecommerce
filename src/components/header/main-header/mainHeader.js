@@ -12,40 +12,40 @@ let dataAddToCart = props.dataAddToCart;
 let indexDelete = props.indexDelete;
 let checkout = props.checkout;
 
-useEffect(() => {
-  callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-    if(res && res.data.length>0) {
-      setQtyCart(res.data.length)
-    } else setQtyCart(0)
-  })
-}, []);
+// useEffect(() => {
+//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
+//     if(res && res.data.length>0) {
+//       setQtyCart(res.data.length)
+//     } else setQtyCart(0)
+//   })
+// }, []);
 
-useEffect(() => {
-  callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-    if(res && res.data.length>0) {
-      setQtyCart(res.data.length)
-    } else setQtyCart(0)
-  })
-  return () => {}
-}, [dataAddToCart])
+// useEffect(() => {
+//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
+//     if(res && res.data.length>0) {
+//       setQtyCart(res.data.length)
+//     } else setQtyCart(0)
+//   })
+//   return () => {}
+// }, [dataAddToCart])
 
-useEffect(() => {
-  callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-    if(res && res.data.length>0) {
-      setQtyCart(res.data.length)
-    } else setQtyCart(0)
-  })
-  return () => {}
-}, [indexDelete])
+// useEffect(() => {
+//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
+//     if(res && res.data.length>0) {
+//       setQtyCart(res.data.length)
+//     } else setQtyCart(0)
+//   })
+//   return () => {}
+// }, [indexDelete])
 
-useEffect(() => {
-  callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-    if(res && res.data.length>0) {
-      setQtyCart(res.data.length)
-    } else setQtyCart(0)
-  })
-  return () => {}
-}, [checkout])
+// useEffect(() => {
+//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
+//     if(res && res.data.length>0) {
+//       setQtyCart(res.data.length)
+//     } else setQtyCart(0)
+//   })
+//   return () => {}
+// }, [checkout])
 
 
 

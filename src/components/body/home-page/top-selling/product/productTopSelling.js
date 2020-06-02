@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import {Link} from 'react-router-dom';
 import Waitting from './../../../../../common/waiting';
 import AddToCart from '../../../../../common/add-to-cart/addToCart';
+import {db} from '../../../../../firebase'
 
 const ProductTopSelling = (props) => {
   const [ newProducts, setNewProducts ] = useState([]);
@@ -22,16 +23,23 @@ const ProductTopSelling = (props) => {
   
   useEffect(() => {
 		const fetchData = async () => {
-			await callApi(`products?discountProduct=${true}`, 'get', null).then((res) => {
-				if (res) {
-					if (res.data.length > 0) {
-            let data = [ ...res.data ];
-            setNewProducts(data);
-            setNewDatas(data);
+      let products = [];
+      let data = [];
+      await db.collection('products')
+        .get()
+        .then(snapshot => snapshot.docs.map(doc => {
+          products.push({...doc.data(), id: doc.id})
+          
+        }))
+        products.filter(item => {
+          if(item.hotdeal===true) {
+            data.push({...item})
           }
-				}
-			});
-		};
+        })
+        console.log('products', products)
+        setNewProducts([...data]);
+        setNewDatas([...data]);
+    }
 		fetchData();
   },[]);
 
