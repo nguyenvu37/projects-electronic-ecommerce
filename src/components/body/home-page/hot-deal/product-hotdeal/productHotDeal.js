@@ -37,7 +37,7 @@ const ProductHotDeal = () => {
         <div className='row'>
           <div className='col-md-12'>
             <div className='hot-deal'>
-              <ul className='hot-deal-countdown'>
+              {/* <ul className='hot-deal-countdown'>
                 <li>
                   <div>
                     <h3>{day}</h3>
@@ -62,7 +62,7 @@ const ProductHotDeal = () => {
                     <span>Secs</span>
                   </div>
                 </li>
-              </ul>
+              </ul> */}
               <h2 className='text-uppercase'>hot deal this week</h2>
               <p>New Collection Up to 50% OFF</p>
               <Link className="btn-show text-uppercase" to="/hot-deals">
