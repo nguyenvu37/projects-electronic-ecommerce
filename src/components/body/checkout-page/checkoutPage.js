@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Waitting from '../../../common/waiting'
-import callApi from '../../../common/callApi'
 import CheckoutItem from './checkoutItem'
 import MyPagination from '../../../common/pagination'
 import './checkout.css'
 import { Link } from 'react-router-dom'
 import { formatNumberUSD } from '../../../common/formatNumber'
 import { connect } from 'react-redux'
+import {db} from '../../../firebase'
 
 const CheckoutPage = props => {
   const [dataCart, setDataCart] = useState([])
@@ -19,58 +19,35 @@ const CheckoutPage = props => {
   const fetchData = async () => {
     let subTotals = 0
     let totals = []
-
-    await callApi(`data-checkout`, 'get', null).then(res => {
-      if (res && res.data.length > 0) {
-        const dataTotals = [...res.data]
-        let id_dataCart = []
-        dataTotals.map(item => id_dataCart.push(item.id))
-        let total = dataTotals.map(item => item.total)
+    let data = []
+    await db.collection("data-checkout")
+      .get()
+      .then(snapshot => snapshot.docs.map(doc => {
+        data.push({...doc.data()})
+        return true;
+    }))
+      if (data.length>0) {
+        let total = data.map(item => item.total)
         totals.push(total)
-        subTotals = totals[0].reduce((a, b) => {
-          return a + b
-        }, 0)
-        setDataCart([...res.data])
+        subTotals = totals[0].reduce((a,b) => a+b,0)
+        setDataCart([...data])
       } else {
         totals = []
         subTotals = 0
         setDataCart([])
       }
       setSubTotal(subTotals)
-    })
   }
-
-  // const deleteCart = async arr => {
-  //   console.log('test deleteCart')
-  //   return await arr.forEach(item => callApi(`cart/${item.id}`, 'delete', null))
-  // }
-
-  // useEffect(() => {
-  //   let subTotals = 0
-  //   let totals = []
-  //   let id_dataCart = []
-  //   let dataCheckout = props.checkout
-  //     console.log('dataCheckout', dataCheckout)
-  //     dataCheckout.map(item => id_dataCart.push(item.id))
-  //     let total = dataCheckout.map(item => item.total)
-  //     totals.push(total)
-  //     subTotals = totals[0].reduce((a, b) => {
-  //       return a + b
-  //     }, 0)
-  //     setSubTotal(subTotals)
-      
-  //     setDataCart([...dataCheckout])
-    
-  // }, [])
 
   useEffect(() => {
     fetchData()
-    callApi(`cart`, 'get', null).then(res => {
-      if (res && res.data.length>0) {
-        // deleteCart([...res.data]);
-      }
-    })
-  }, [props.checkout])
+    return () => {}
+  }, [])
+
+  // useEffect(() => {
+  //   fetchData()
+  //   })
+  // }, [props.checkout])
 
   const nextPage = number => {
     setIndexDataRender(number * _limit)

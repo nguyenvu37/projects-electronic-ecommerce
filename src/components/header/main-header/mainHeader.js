@@ -2,7 +2,7 @@ import React, {useRef, useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { setDataSearch } from '../../action/action';
-import callApi from '../../../common/callApi';
+import {db} from '../../../firebase';
 
 function MainHeader (props) {
 const inputSearch = useRef(null);
@@ -12,41 +12,37 @@ let dataAddToCart = props.dataAddToCart;
 let indexDelete = props.indexDelete;
 let checkout = props.checkout;
 
-// useEffect(() => {
-//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-//     if(res && res.data.length>0) {
-//       setQtyCart(res.data.length)
-//     } else setQtyCart(0)
-//   })
-// }, []);
+const fetchData = () => {
+  let data = [];
+  db.collection(`cart`)
+  .get()
+  .then(snapshot => snapshot.docs.map(doc => {
+    data.push({...doc.data(), id: doc.id})
+    setQtyCart(data.length)
+    return true;
+  }))
+}
 
-// useEffect(() => {
-//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-//     if(res && res.data.length>0) {
-//       setQtyCart(res.data.length)
-//     } else setQtyCart(0)
-//   })
-//   return () => {}
-// }, [dataAddToCart])
+useEffect(() => {
+ fetchData()
+  return () => {
+    setQtyCart(0)
+  }
+}, [dataAddToCart])
 
-// useEffect(() => {
-//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-//     if(res && res.data.length>0) {
-//       setQtyCart(res.data.length)
-//     } else setQtyCart(0)
-//   })
-//   return () => {}
-// }, [indexDelete])
+useEffect(() => {
+  fetchData()
+  return () => {
+    setQtyCart(0)
+  }
+}, [indexDelete])
 
-// useEffect(() => {
-//   callApi(`cart?status=${'unpaid'}`, 'get', null).then(res => {
-//     if(res && res.data.length>0) {
-//       setQtyCart(res.data.length)
-//     } else setQtyCart(0)
-//   })
-//   return () => {}
-// }, [checkout])
-
+useEffect(() => {
+  fetchData()
+  return () => {
+    setQtyCart(0)
+  }
+}, [checkout])
 
 
 const removeAccents = (str) => {
@@ -81,9 +77,6 @@ const onSearchData = () => {
 
 }
 
-const onAddtoCart = () => {
-  
-}
 
   return (
     <header>
@@ -120,7 +113,6 @@ const onAddtoCart = () => {
                 <Link to='/my-cart' className="btn">
                   <div
                     className='cart text-center'
-                    onClick={onAddtoCart}
                   >
                     <i className='fa fa-shopping-cart'></i>
                     <span>Your Cart</span>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import CartPageItem from './cartPageItem'
-import callApi from '../../../common/callApi'
 import './cartpage.css'
 import MyPagination from '../../../common/pagination'
 import { connect } from 'react-redux'
@@ -85,58 +84,43 @@ function CartPage (props) {
 
   const addToCheckout = (arr) => {
     return arr.forEach(item => {
-      db.collection("data-checkout").add({...item, status: paid})
+      db.collection("data-checkout").add({...item, status: 'paid'})
+      db.collection("cart").doc(item.id).delete()
       setCheckoutData({...item})
-      // callApi(`data-checkout`, 'post', {...item, status: 'paid'})
-      
-      // .then(setCheckoutData(item))
-      // (callApi(`cart`, 'delete', null))
     })
   }
 
-  const onCheckout = () => {
+  const onCheckout = async () => {
     if (dataCart.length > 0) {
       let data = [];
-      db.collection("cart")
+      await db.collection("cart")
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           data.push({...doc.data(), id: doc.id})
-
-          if(data.length>0) {
-            if(window.confirm('You want to pay?')) {
-              let new_dataCart = [...res.data]
-              let new_data = []
-              new_dataCart.forEach(item => new_data.push({...item, status: 'paid'}))
-              addToCheckout(new_dataCart)
-              props.handleCheckout([...new_data])
-            }
-          }
         }))
-
-      // callApi(`cart`, 'get', null).then(res => {
-      //   if (res && res.data.length > 0) {
-      //     if (window.confirm('You want to pay?')) {
-      //       let new_dataCart = [...res.data]
-      //       let new_data = []
-      //       new_dataCart.forEach(item => new_data.push({...item, status: 'paid'}))
-      //       addToCheckout(new_dataCart)
-      //       // new_dataCart.forEach(async item => aw 
-      //       props.handleCheckout([...new_data])
-      //       props.history.push('/checkout')
-      //     }
-      //   } else addToCheckout([])
-      // })
+        if(data.length>0) {
+          if(window.confirm('You want to pay?')) {
+            let new_dataCart = [...data]
+            let new_data = []
+            new_dataCart.forEach(item => new_data.push({...item, status: 'paid'}))
+            addToCheckout(new_dataCart)
+            props.handleCheckout([...new_data])
+            props.history.push('/checkout')
+          }
+        }
     }
   }
 
   useEffect(() => {
-    callApi(`cart`, 'get', null).then(res => {
-      if (res && res.data.length > 0) {
-        let dataCart = [...res.data]
-        console.log('dataCart', dataCart)
-        setDataCart([...res.data])
+    let data = [];
+     db.collection("cart")
+      .get()
+      .then(snapshot => snapshot.docs.map(doc => {
+        data.push({...doc.data(), id: doc.id})
+      }))
+      if (data.length> 0) {
+        setDataCart([...data])
       } else setDataCart([])
-    })
 
     return () => {setDataCart([])}
   }, [checkoutData])

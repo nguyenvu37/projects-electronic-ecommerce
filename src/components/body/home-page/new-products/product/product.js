@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import callApi from '../../../../../common/callApi'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -28,7 +27,7 @@ const Product = props => {
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           products.push({...doc.data(), id: doc.id})
-          
+          return true;
         }))
         console.log('products', products)
         setNewProducts([...products]);

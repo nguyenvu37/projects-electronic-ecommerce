@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import callApi from '../callApi'
-import uuid from 'react-uuid'
 import { NotificationManager} from 'react-notifications';
 import {connect} from 'react-redux';
 import {addToCart} from './../../components/action/action';
@@ -30,11 +28,6 @@ function AddToCart (props) {
         setDataCarts([])
         setIdData([])
       }
-    // await callApi(`cart`, 'get', null).then(res => {
-    //   if (res && res.data.length > 0) {
-    //     setDataCarts([...res.data])
-    //   } else setDataCarts([])
-    // })
   }
 
   useEffect(() => {
@@ -50,6 +43,7 @@ function AddToCart (props) {
           if(item.id === id) {
             new_data.push({...item})
           }
+          return true;
         })
         if(new_data.length>0) {
           setData([...new_data])
