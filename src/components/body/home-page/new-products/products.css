@@ -114,13 +114,15 @@
 	font-size: 14px;
 }
 
-.product .product-body .product-name > a {
+.product .product-body .product-name > .product-name-detail {
 	font-weight: 700;
+	text-decoration: none;
 }
 
-.product .product-body .product-name > a:hover,
-.product .product-body .product-name > a:focus {
+.product .product-body .product-name > .product-name-detail:hover,
+.product .product-body .product-name > .product-name-detail:focus {
 	color: #d10024;
+	text-decoration: none;
 }
 
 .product .product-body .product-price {

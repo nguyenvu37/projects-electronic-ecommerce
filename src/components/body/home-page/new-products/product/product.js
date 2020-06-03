@@ -99,7 +99,7 @@ const Product = props => {
               <div className='product-body'>
                 <p className='product-category'>Category</p>
                 <h3 className='product-name'>
-                  <Link to={`/detail/${product.id}`}>{product.name}</Link>
+                  <Link to={`/detail/${product.id}`} className="product-name-detail">{product.name}</Link>
                 </h3>
                 <h4 className='product-price'>
                   ${product.newPrice}
