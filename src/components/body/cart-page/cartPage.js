@@ -12,7 +12,6 @@ import {db} from '../../../firebase'
 function CartPage (props) {
   const [dataCart, setDataCart] = useState([])
   const [subTotal, setSubTotal] = useState(0)
-  const [total, setTotal] = useState(0)
   const [checkoutData, setCheckoutData] = useState('')
 
   const _limit = 6
@@ -27,6 +26,7 @@ function CartPage (props) {
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           data.push({...doc.data(), id: doc.id})
+          return true
         }))
         if (data.length>0) {
           let total = data.map(item => item.total)
@@ -52,18 +52,14 @@ function CartPage (props) {
 
   const onPlusQty = props => {
     console.log('props', props)
-    let total = props.qty * props.price
     let subTotals = subTotal + props.price;
     setSubTotal(subTotals)
-    setTotal(total)
   }
 
   const onMinusQty = props => {
     console.log('props', props)
-    let total = props.qty * props.price
     let subTotals = subTotal - props.price;
     setSubTotal(subTotals)
-    setTotal(total)
   }
 
   const onDeleteProduct = id => {
@@ -97,6 +93,7 @@ function CartPage (props) {
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           data.push({...doc.data(), id: doc.id})
+          return true
         }))
         if(data.length>0) {
           if(window.confirm('You want to pay?')) {
@@ -117,6 +114,7 @@ function CartPage (props) {
       .get()
       .then(snapshot => snapshot.docs.map(doc => {
         data.push({...doc.data(), id: doc.id})
+        return true
       }))
       if (data.length> 0) {
         setDataCart([...data])

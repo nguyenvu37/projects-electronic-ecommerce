@@ -16,6 +16,7 @@ function SearchPage (props) {
         .then(snapshot =>
           snapshot.docs.map(doc => {
             products.push({ ...doc.data(), id: doc.id })
+            return true
           })
         )
       if (products.length > 0) {
@@ -42,6 +43,7 @@ function SearchPage (props) {
           .then(snapshot =>
             snapshot.docs.map(doc => {
               data.push({ ...doc.data(), id: doc.id })
+              return true
             })
           )
         if (data.length > 0) {
@@ -66,6 +68,7 @@ function SearchPage (props) {
               if (doc.data().hotdeal === true) {
                 data.push({ ...doc.data(), id: doc.id })
               }
+              return true
             })
           )
         if (data.length > 0) {
@@ -90,6 +93,7 @@ function SearchPage (props) {
               if (doc.data().category === category) {
                 data.push({ ...doc.data(), id: doc.id })
               }
+              return true
             })
           )
         if (data.length > 0) {

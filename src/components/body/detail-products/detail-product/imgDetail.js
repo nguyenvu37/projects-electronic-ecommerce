@@ -17,7 +17,7 @@ const ImgDetail = props => {
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           products.push({...doc.data(), id: doc.id})
-          
+          return true
         }))
         console.log('products', products)
 
@@ -25,6 +25,7 @@ const ImgDetail = props => {
           if(item.id === props.match.params.id) {
             data.push({...item})
           }
+          return true
         })
         console.log('data', data)
         setImgProducts([...data[0].imgDetail])

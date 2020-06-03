@@ -19,6 +19,7 @@ const ItemRelated = (props) => {
         .then(snapshot =>
           snapshot.docs.map(doc => {
             products.push({ ...doc.data(), id: doc.id })
+            return true
           })
         )
 
@@ -26,6 +27,7 @@ const ItemRelated = (props) => {
         if (item.id === props.match.params.id) {
           data.push({ ...item })
         }
+        return true
       })
 
       setCategory(data[0].category)
@@ -43,6 +45,7 @@ const ItemRelated = (props) => {
         .then(snapshot =>
           snapshot.docs.map(doc => {
             products.push({ ...doc.data(), id: doc.id })
+            return true
           })
         )
 
@@ -50,6 +53,7 @@ const ItemRelated = (props) => {
         if (item.category === category) {
           data.push({ ...item })
         }
+        return true
       })
 
       if(data.length> 0) {

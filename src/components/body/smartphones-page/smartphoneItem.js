@@ -14,7 +14,7 @@ const SmartphoneItem = props => {
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           products.push({...doc.data(), id: doc.id})
-          
+          return true
         }))
         let data = [];
         console.log('products', products)

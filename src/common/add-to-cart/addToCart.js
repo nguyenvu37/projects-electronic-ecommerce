@@ -9,7 +9,6 @@ function AddToCart (props) {
   const [data, setData] = useState([])
   const [products, setProducts] = useState([])
   const [dataCarts, setDataCarts] = useState([])
-  const [idData, setIdData] = useState([])
   let id = props.id
 
   const fetchDataCart = async () => {
@@ -20,13 +19,12 @@ function AddToCart (props) {
       .then(snapshot => snapshot.docs.map(doc => {
         data.push({...doc.data(), id: doc.id})
         idCart.push(doc.id)
+        return true
       }))
       if (data.length> 0){
         setDataCarts([...data])
-        setIdData([...idCart])
       } else {
         setDataCarts([])
-        setIdData([])
       }
   }
 
@@ -38,6 +36,7 @@ function AddToCart (props) {
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           data.push({...doc.data(), id: doc.id})
+          return true
         }))
         data.filter(item => {
           if(item.id === id) {

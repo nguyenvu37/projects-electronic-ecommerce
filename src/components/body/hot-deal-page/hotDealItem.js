@@ -18,15 +18,15 @@ const HotDealItem = (props) => {
 			  .get()
 			  .then(snapshot => snapshot.docs.map(doc => {
 				products.push({...doc.data(), id: doc.id})
-				
+				return true
 			  }))
 			  let data = [];
 			  console.log('products', products)
 			  products.filter(item => {
 				if (item.hotdeal === true) data.push(item)
+				return true
 			  });
 	  
-			  console.log('data', data)
 			  if (data.length > 0) {
 				setProducts([...data]);
 				setIndexDataRender(0);

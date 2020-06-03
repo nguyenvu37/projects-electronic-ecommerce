@@ -44,11 +44,6 @@ const CheckoutPage = props => {
     return () => {}
   }, [])
 
-  // useEffect(() => {
-  //   fetchData()
-  //   })
-  // }, [props.checkout])
-
   const nextPage = number => {
     setIndexDataRender(number * _limit)
     setCurrentPage(currentPage + 1)

@@ -34,6 +34,7 @@ const ProductTopSelling = (props) => {
           if(item.hotdeal===true) {
             data.push({...item})
           }
+          return true
         })
         console.log('products', products)
         setNewProducts([...data]);
