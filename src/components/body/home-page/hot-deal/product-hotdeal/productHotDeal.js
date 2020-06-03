@@ -27,6 +27,7 @@ class ProductHotDeal extends Component {
           this.setState({
             time: data[0].time
           })
+          return true
         })
       )
   }
