@@ -23,18 +23,11 @@
 
 .section .section-title .section-nav ul li:hover button {
 	padding-bottom: 3px;
-	/* border-bottom: 2px solid #d10024; */
 	transition: all 0.3s;
 	cursor: pointer;
 	background-color: #d1002480;
 	color: #fff;
 }
-/* 
-.section .section-title .section-nav ul li.active button {
-	color: #d10024;
-	padding-bottom: 3px;
-	border-bottom: 2px solid #d10024;
-} */
 
 .products-tabs {
 	width: 100%;
@@ -43,7 +36,7 @@
 .products-tabs .products-slick {
 	display: flex;
 	margin: 10px 0;
-	width: 1140px;
+	width: 100%;
 }
 
 .product {
@@ -51,7 +44,6 @@
 	margin: 15px 15px;
 	box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
 	transition: 0.2s all;
-	/* width: 1140px; */
 	height: 100%;
 }
 
@@ -280,4 +272,43 @@
 .product .add-to-cart .add-to-cart-btn:hover > i {
 	opacity: 1;
 	visibility: visible;
+}
+
+@media only screen and (max-width: 1200px) {
+	.product {
+		height: 445px;
+	}
+	.product .add-to-cart .add-to-cart-btn {
+		height: 30px;
+		padding: 0 20px;
+		font-size: 0.9rem;
+	}
+	
+	.product .add-to-cart .add-to-cart-btn > i {
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		font-size: 0.9rem;
+	}
+	.product .add-to-cart .add-to-cart-btn:hover {
+		padding: 0px 20px 0px 30px;
+	}
+}
+
+@media only screen and (max-width:990px) {
+	.product {
+		height: 445px;
+	}
+}
+
+@media only screen and (max-width:768px) {
+	.product {
+		height: 500px;
+	}
+}
+
+@media only screen and (max-width:425px) {
+	.product {
+		height: 600px;
+	}
 }

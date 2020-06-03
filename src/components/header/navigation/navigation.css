@@ -27,6 +27,47 @@
 	transition: all 0.3s;
 }
 
+.menu-icon {
+	width: 100%;
+	display: none;
+	font-size: 1.7rem;
+	padding: 1.5rem 0;
+}
+
+.menu-icon .fas {
+	margin-bottom: 20px;
+	float: right;
+}
+
+.menu-icon .fas:hover {
+	cursor: pointer;
+}
+
+.main-nav-bar {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.ml {
+	width: 100%;
+    color: #333;
+    margin-right: 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid;
+}
+
+@media only screen and (max-width: 776px) {
+	.responsive-nav {
+		display: none;
+	}
+	.menu-icon {
+		display: block;
+	}
+}
+
 /* 
 .navigation .responsive-nav ul li.active a {
 	color: #d10024;

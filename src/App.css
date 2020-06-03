@@ -61,6 +61,7 @@ body {
 
 .header-search {
   display: flex;
+  flex-direction: row;
   padding: 15px 0px;
 }
 
@@ -99,6 +100,55 @@ body {
   outline: none;
 }
 
+@media only screen and (max-width: 1198px) {
+  .header-search form select{
+    height: 40px;
+    width: 100px;
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 400;
+    border-radius: 40px 0px 0px 40px;
+    background-color: #FFF;
+    padding-left: 10px;
+    outline: none;
+  }
+  
+  .header-search form input {
+    width: 150px;
+    height: 40px;
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 400;
+    padding-left: 10px;
+    outline: none;
+  }
+  
+  .header-search form .search-btn {
+    height: 40px;
+    width: 100px;
+    font-size: 0.9rem;
+    background: #D10024;
+    color: #FFF;
+    font-weight: 700;
+    border: none;
+    border-radius: 0px 40px 40px 0px;
+    outline: none;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .header-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
 /*----------------------------*\
 	Cart
 \*----------------------------*/

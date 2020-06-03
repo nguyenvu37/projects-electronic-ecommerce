@@ -83,14 +83,14 @@ const onSearchData = () => {
       <div id='header'>
         <div className='container'>
           <div className='row'>
-            <div className='col-md-3'>
+            <div className='col-lg-3'>
               <div className='header-logo'>
                 <Link to='/' className='logo'>
                   <img src={require('./../../../img/logo.png')} alt='' />
                 </Link>
               </div>
             </div>
-            <div className='col-md-6'>
+            <div className='col-lg-6'>
               <div className='header-search'>
                 <form>
                   <select className='input-select' ref={selectValue}>
@@ -108,7 +108,7 @@ const onSearchData = () => {
                 </form>
               </div>
             </div>
-            <div className='col-md-3 clearfix'>
+            <div className='col-lg-3 clearfix'>
               <div className='header-ctn'>
                 <Link to='/my-cart' className="btn">
                   <div

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './navigation.css';
 import {NavLink} from 'react-router-dom';
 
@@ -30,6 +30,13 @@ const titleProducts = [
 ];
 
 export default function Navigation () {
+  const [toggleMenu, setToggleMenu] = useState(false)
+
+  const onToggleMenu = () => {
+    setToggleMenu(!toggleMenu)
+  }
+
+  let styleNav = toggleMenu ? 'flex' : 'none';
   return (
     <div className='navigation'>
       <nav className='container'>
@@ -48,6 +55,25 @@ export default function Navigation () {
                   </NavLink>)
           })}
           </ul>
+          
+        </div>
+        <div className="menu-icon">
+          <i className="fas fa-bars" onClick={onToggleMenu}></i>
+          <ul className="main-nav-bar nav" style={{display: `${styleNav}`}}>
+          {titleProducts.map( (titleProduct, i) => {
+            return (<NavLink 
+                    key={i} 
+                    to={titleProduct.path}
+                    style={{textDecoration: 'none'}}
+                    activeStyle={{color: '#D10024',borderBottom: '2px solid #D10024'}}
+                    className='ml'
+                    id={`nav-${i+1}`}
+                  >
+                    {titleProduct.name}
+                  </NavLink>)
+          })}
+					</ul>
+          
         </div>
       </nav>
     </div>
