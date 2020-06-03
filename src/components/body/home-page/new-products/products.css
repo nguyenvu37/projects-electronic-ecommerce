@@ -230,12 +230,14 @@
 	transition: 0.2s all;
 	z-index: 2;
 	outline: none;
+	opacity: 0;
 }
 
 .product:hover .add-to-cart {
 	-webkit-transform: translateY(100%);
 	-ms-transform: translateY(100%);
 	transform: translateY(100%);
+	opacity: 1;
 }
 
 .product .add-to-cart .add-to-cart-btn {
