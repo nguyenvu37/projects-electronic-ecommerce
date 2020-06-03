@@ -53,10 +53,10 @@
 
 .ml {
 	width: 100%;
-    color: #333;
-    margin-right: 0;
-    font-size: 1.2rem;
-    border-bottom: 1px solid;
+	color: #333;
+	margin-right: 0;
+	font-size: 1.2rem;
+	border-bottom: 1px solid;
 }
 
 @media only screen and (max-width: 776px) {
@@ -67,10 +67,3 @@
 		display: block;
 	}
 }
-
-/* 
-.navigation .responsive-nav ul li.active a {
-	color: #d10024;
-	padding-bottom: 3px;
-	border-bottom: 2px solid #d10024;
-} */

@@ -1,5 +1,5 @@
 .hotdeal {
-	width: 1140px;
+	width: 100%;
 }
 
 .product {
@@ -7,6 +7,7 @@
 	margin: 15px 15px;
 	box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
 	transition: 0.2s all;
+	height: 550px !important;
 }
 
 .product:hover {
@@ -236,4 +237,38 @@
 .product .add-to-cart .add-to-cart-btn:hover > i {
 	opacity: 1;
 	visibility: visible;
+}
+
+@media only screen and (max-width: 768px) {
+	.product {
+		height: 430px !important;
+	}
+	.product .add-to-cart .add-to-cart-btn {
+		height: 30px;
+		padding: 0 20px;
+		font-size: 0.9rem;
+	}
+
+	.product .add-to-cart .add-to-cart-btn > i {
+		width: 30px;
+		height: 30px;
+		font-size: 0.9rem;
+		left: 0;
+		top: -7px;
+	}
+
+	.product .add-to-cart .add-to-cart-btn:hover {
+		background-color: #fff;
+		color: #d10024;
+		border-color: #d10024;
+		padding: 0px 20px 0px 30px;
+	}
+}
+
+@media only screen and (max-width: 576px) {
+	.product {
+		height: 600px !important;
+		width: 350px;
+		margin: auto;
+	}
 }

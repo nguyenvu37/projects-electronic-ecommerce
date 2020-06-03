@@ -8,7 +8,7 @@ import AddToCart from '../../../../../common/add-to-cart/addToCart';
 import {db} from '../../../../../firebase'
 
 const ProductTopSelling = (props) => {
-  const [ newProducts, setNewProducts ] = useState([]);
+  const [newProducts, setNewProducts] = useState([]);
 	const [newDatas, setNewDatas] = useState([]);
 
 	let settings = {
@@ -50,9 +50,9 @@ const ProductTopSelling = (props) => {
           products.push({...doc.data(), id: doc.id})
           return true;
         }))
-        products.filter(item => {
-          if(item.hotdeal===true) {
-            data.push({...item})
+        products.forEach(item => {
+          if(item.discountProduct===true) {
+            data.push(item)
           }
           return true
         })

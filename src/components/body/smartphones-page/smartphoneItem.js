@@ -40,7 +40,7 @@ const SmartphoneItem = props => {
             <span className='sale'>{`-${product.discount}%`}</span>
           )
         return (
-          <div className="col-4" key={i}>
+          <div className="col-lg-4 col-md-6 col-12" key={i}>
           <div className='product'>
             <div className='product-img'>
               <img src={require(`./../../../img/${product.img}`)} alt='' />

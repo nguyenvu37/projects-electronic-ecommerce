@@ -1,7 +1,7 @@
 body {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  color: #333;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	color: #333;
 }
 
 /*----------------------------*\
@@ -9,32 +9,32 @@ body {
 \*----------------------------*/
 
 #top-header {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #1E1F29;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #1e1f29;
 }
 
 .header-links li {
-  display: inline-block;
-  margin-right: 15px;
-  font-size: 12px;
+	display: inline-block;
+	margin-right: 15px;
+	font-size: 12px;
 }
 
 .header-links li:last-child {
-  margin-right: 0px;
+	margin-right: 0px;
 }
 
 .header-links li a {
-  color: #FFF;
+	color: #fff;
 }
 
 .header-links li a:hover {
-  color: #D10024;
+	color: #d10024;
 }
 
 .header-links li i {
-  color: #D10024;
-  margin-right: 5px;
+	color: #d10024;
+	margin-right: 5px;
 }
 
 /*----------------------------*\
@@ -42,17 +42,17 @@ body {
 \*----------------------------*/
 
 #header {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #15161D;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #15161d;
 }
 
 .header-logo {
-  float: left;
+	float: left;
 }
 
 .header-logo .logo img {
-  display: block;
+	display: block;
 }
 
 /*----------------------------*\
@@ -60,133 +60,158 @@ body {
 \*----------------------------*/
 
 .header-search {
-  display: flex;
-  flex-direction: row;
-  padding: 15px 0px;
+	display: flex;
+	flex-direction: row;
+	padding: 15px 0px;
 }
 
 .header-search form {
-  position: relative;
+	position: relative;
 }
 
-.header-search form select{
-  height: 40px;
-  width: 150px;
-  color: #333;
-  font-weight: 400;
-  border-radius: 40px 0px 0px 40px;
-  background-color: #FFF;
-  padding-left: 10px;
-  outline: none;
+.header-search form select {
+	height: 40px;
+	width: 150px;
+	color: #333;
+	font-weight: 400;
+	border-radius: 40px 0px 0px 40px;
+	background-color: #fff;
+	padding-left: 10px;
+	outline: none;
 }
 
 .header-search form input {
-  width: 200px;
-  height: 40px;
-  color: #333;
-  font-weight: 400;
-  padding-left: 10px;
-  outline: none;
+	width: 200px;
+	height: 40px;
+	color: #333;
+	font-weight: 400;
+	padding-left: 10px;
+	outline: none;
 }
 
 .header-search form .search-btn {
-  height: 40px;
-  width: 150px;
-  background: #D10024;
-  color: #FFF;
-  font-weight: 700;
-  border: none;
-  border-radius: 0px 40px 40px 0px;
-  outline: none;
+	height: 40px;
+	width: 150px;
+	background: #d10024;
+	color: #fff;
+	font-weight: 700;
+	border: none;
+	border-radius: 0px 40px 40px 0px;
+	outline: none;
 }
 
 @media only screen and (max-width: 1198px) {
-  .header-search form select{
-    height: 40px;
-    width: 100px;
-    font-size: 0.9rem;
-    color: #333;
-    font-weight: 400;
-    border-radius: 40px 0px 0px 40px;
-    background-color: #FFF;
-    padding-left: 10px;
-    outline: none;
-  }
-  
-  .header-search form input {
-    width: 150px;
-    height: 40px;
-    font-size: 0.9rem;
-    color: #333;
-    font-weight: 400;
-    padding-left: 10px;
-    outline: none;
-  }
-  
-  .header-search form .search-btn {
-    height: 40px;
-    width: 100px;
-    font-size: 0.9rem;
-    background: #D10024;
-    color: #FFF;
-    font-weight: 700;
-    border: none;
-    border-radius: 0px 40px 40px 0px;
-    outline: none;
-  }
+	.header-search form select {
+		height: 40px;
+		width: 100px;
+		font-size: 0.9rem;
+		color: #333;
+		font-weight: 400;
+		border-radius: 40px 0px 0px 40px;
+		background-color: #fff;
+		padding-left: 10px;
+		outline: none;
+	}
+
+	.header-search form input {
+		width: 150px;
+		height: 40px;
+		font-size: 0.9rem;
+		color: #333;
+		font-weight: 400;
+		padding-left: 10px;
+		outline: none;
+	}
+
+	.header-search form .search-btn {
+		height: 40px;
+		width: 100px;
+		font-size: 0.9rem;
+		background: #d10024;
+		color: #fff;
+		font-weight: 700;
+		border: none;
+		border-radius: 0px 40px 40px 0px;
+		outline: none;
+	}
 }
 
 @media only screen and (max-width: 990px) {
-  .header-logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+	.header-logo {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
 
-  .header-search {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+	.header-search {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
 }
 /*----------------------------*\
 	Cart
 \*----------------------------*/
 
 .header-ctn {
-  float: right;
-  padding: 15px 0px;
+	float: right;
+	padding: 15px 0px;
 }
 
 .header-ctn .cart {
-  display: flex;
-  flex-direction: column;
-  color: #FFF;
-  position: relative;
-  opacity: 0.9;
-  font-size: 1.2rem;
+	display: flex;
+	flex-direction: column;
+	color: #fff;
+	position: relative;
+	opacity: 0.9;
+	font-size: 1.2rem;
 }
 
 .header-ctn .cart .qty {
-  position: absolute;
-  right: 5px;
-  top: -10px;
-  width: 25px;
-  height: 25px;
-  line-height: 20px;
-  text-align: center;
-  border-radius: 50%;
-  font-size: 20px;
-  color: #FFF;
-  background-color: #D10024;
+	position: absolute;
+	right: 5px;
+	top: -10px;
+	width: 25px;
+	height: 25px;
+	line-height: 20px;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 20px;
+	color: #fff;
+	background-color: #d10024;
 }
 
 .navigation {
-  display: flex;
-  flex-direction: row;
-  background: #FFF;
-  border-bottom: 2px solid #E4E7ED;
-  border-top: 3px solid #D10024;
+	display: flex;
+	flex-direction: row;
+	background: #fff;
+	border-bottom: 2px solid #e4e7ed;
+	border-top: 3px solid #d10024;
+}
+
+@media only screen and (max-width: 576px) {
+	.header-search {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.header-search form select {
+		height: 30px;
+		width: 80px;
+		font-size: 0.8rem;
+	}
+
+	.header-search form input {
+		width: 120px;
+		height: 30px;
+		font-size: 0.8rem;
+	}
+
+	.header-search form .search-btn {
+		height: 30px;
+		width: 80px;
+		font-size: 0.9rem;
+	}
 }
 
 /*----------------------------*\
@@ -223,4 +248,3 @@ body {
 .header-ctn li.nav-toggle {
   display: none;
 } */
-

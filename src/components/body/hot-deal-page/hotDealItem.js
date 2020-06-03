@@ -58,14 +58,15 @@ const HotDealItem = (props) => {
 	};
 	return (
 		products.length > 0 ? (
-            <div className="row">
+            <div className="container">
+			<div className="row">
 			{pagination() &&
 				pagination().map((product, i) => {
 					let oldPrice = product.oldPrice ? `$${product.oldPrice}` : '';
 					let discount =
 						product.discount === '' ? '' : <span className="sale">{`-${product.discount}%`}</span>;
 					return (
-						<div className="col-4" key={i}>
+						<div className="col-lg-4 col-6 col-12" key={i}>
 							<div className="product">
 								<div className="product-img">
 									<img src={require(`./../../../img/${product.img}`)} alt="" />
@@ -103,6 +104,8 @@ const HotDealItem = (props) => {
 						</div>
 					);
 				})}
+			</div>
+			
 			<div className="container mt-5">
 				<MyPagination
 					nextPage={nextPage}

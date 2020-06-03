@@ -43,15 +43,22 @@ const Product = props => {
   useEffect(() => {
     const fetchData = async () => {
       let products = [];
+      let data = [];
       await db.collection('products')
         .get()
         .then(snapshot => snapshot.docs.map(doc => {
           products.push({...doc.data(), id: doc.id})
           return true;
         }))
+        products.forEach(item => {
+          if (item.newProduct === true) {
+            data.push(item)
+          }
+          return true;
+        })
         console.log('products', products)
-        setNewProducts([...products]);
-        setNewDatas([...products]);
+        setNewProducts([...data]);
+        setNewDatas([...data]);
     }
     fetchData()
   }, [])
@@ -62,10 +69,6 @@ const Product = props => {
     let products = newProducts.filter(item => item.category === category)
     setNewDatas([...products])
   }, [props.dataCategory])
-
-  useEffect(() => {
-
-  }, [newProducts])
 
   return (
     newDatas.length > 0 ? (
