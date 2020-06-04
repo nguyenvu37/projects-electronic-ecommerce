@@ -10,6 +10,7 @@ function AddToCart (props) {
   const [products, setProducts] = useState([])
   const [dataCarts, setDataCarts] = useState([])
   let id = props.id
+  let qtyDetail = props.qtyDetail
 
   const fetchDataCart = async () => {
     let data = [];
@@ -54,6 +55,31 @@ function AddToCart (props) {
   }, [id])
 
   useEffect(() => {
+    const fetchData = async () => {
+      let data = [];
+      let new_data = [];
+      await db.collection('products')
+        .get()
+        .then(snapshot => snapshot.docs.map(doc => {
+          data.push({...doc.data(), id: doc.id})
+          return true
+        }))
+        data.filter(item => {
+          if(item.id === id) {
+            new_data.push({...item})
+          }
+          return true;
+        })
+        if(new_data.length>0) {
+          setData([...new_data])
+        } else {
+          setData([])
+        }
+    }
+    fetchData()
+  }, [qtyDetail])
+
+  useEffect(() => {
     fetchDataCart()
   }, [products])
 
@@ -83,7 +109,7 @@ function AddToCart (props) {
       oldPrice: data[0].oldPrice,
       status: 'unpaid',
       discount: data[0].discount,
-      qty: 1,
+      qty: props.qtyDetail ? props.qtyDetail : 1,
       total: data[0].newPrice
     }
     console.log('dataCart', dataCart)
@@ -98,7 +124,7 @@ function AddToCart (props) {
       db.collection("cart").doc(id).update({
          ...dataCart,
          id: dataCarts[indexData].id,
-         qty: dataCarts[indexData].qty+1,
+         qty: props.qtyDetail ? dataCarts[indexData].qty + parseInt(props.qtyDetail) : dataCarts[indexData].qty+1,
          total: (dataCarts[indexData].qty+1) * dataCarts[indexData].newPrice
         });
       setProducts({ ...dataCart })

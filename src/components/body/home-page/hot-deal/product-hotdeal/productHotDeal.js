@@ -13,6 +13,11 @@ class ProductHotDeal extends Component {
       day: 0,
       time: 0
     }
+    this.day = 0;
+    this.hours = 0;
+    this.minute = 0;
+    this.seconds = 0;
+    
   }
 
   componentDidMount () {
@@ -23,36 +28,26 @@ class ProductHotDeal extends Component {
         snapshot.docs.map(doc => {
           data.push({ ...doc.data(), id: doc.id })
           console.log('data', data)
-          this.setState({
-            time: data[0].time
-          })
+          let count = setInterval(() => {
+            let timeRest = new Date(`${data[0].time}`).getTime() - Date.now()
+            this.day = Math.floor(timeRest / (1000 * 60 * 60 * 24))
+            this.hours = Math.floor(
+              (timeRest % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            )
+            this.minute = Math.floor((timeRest % (1000 * 60 * 60)) / (1000 * 60))
+            this.seconds = Math.floor((timeRest % (1000 * 60)) / 1000)
+            this.setState({
+              seconds: this.seconds,
+              minute: this.minute,
+              hours: this.hours,
+              day: this.day
+            })
+            if (timeRest <= 0) clearInterval(count)
+          },1000)
           return true
         })
       )
   }
-
-  componentDidUpdate() {
-    
-  }
-
-  
-  countTime = setInterval(() => {
-    let timeRest = new Date(`${this.state.time}`).getTime() - Date.now()
-    let day = Math.floor(timeRest / (1000 * 60 * 60 * 24))
-    let hours = Math.floor(
-      (timeRest % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    )
-    let minute = Math.floor((timeRest % (1000 * 60 * 60)) / (1000 * 60))
-    let seconds = Math.floor((timeRest % (1000 * 60)) / 1000)
-
-    this.setState({
-      seconds: seconds,
-      minute: minute,
-      hours: hours,
-      day: day
-    })
-    if (timeRest <= 0) clearInterval(this.countTime)
-  }, 1000)
 
   render () {
     return (

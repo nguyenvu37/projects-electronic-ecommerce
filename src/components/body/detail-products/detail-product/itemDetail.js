@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import AddToCart from '../../../../common/add-to-cart/addToCart'
+import {connect} from 'react-redux'
 import { db } from '../../../../firebase'
 
 const ItemDetail = props => {
+  const inputQty = useRef(null);
   const [data, setData] = useState([])
+  const [qty, setQty] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
+      console.log('inputQty.current.value', inputQty.current.value)
       let products = []
       let data = []
       await db
@@ -33,6 +37,15 @@ const ItemDetail = props => {
     }
     fetchData()
   }, [props.match.params.id])
+
+  useEffect(() => {
+    inputQty.current.value = '';
+  }, [props.dataAddtoCart])
+
+  const handleQty = () => {
+    console.log('inputQty.current.value', inputQty.current.value)
+    setQty(inputQty.current.value)
+  }
 
   let oldPrice = data.oldPrice ? `$${data.oldPrice}` : ''
   return (
@@ -70,16 +83,21 @@ const ItemDetail = props => {
               >
                 Quantity
               </label>
-              <input type='number' className='form-control' />
+              <input type="number" className='form-control' onChange={handleQty} ref={inputQty}/>
             </div>
           </div>
           <div className='col-12'>
-            <AddToCart id={data.id} />
+            <AddToCart id={data.id} qtyDetail={qty}/>
           </div>
         </div>
       </div>
     </div>
   )
 }
+const mapStateToProps = state => {
+  return {
+    dataAddtoCart: state.addToCart
+  }
+}
 
-export default withRouter(ItemDetail)
+export default connect(mapStateToProps, null)(withRouter(ItemDetail))
