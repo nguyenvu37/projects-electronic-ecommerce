@@ -13,7 +13,6 @@ class ProductHotDeal extends Component {
       day: 0,
       time: 0
     }
-    this.timeReport = Date.now() + 291448019
   }
 
   componentDidMount () {
@@ -32,23 +31,28 @@ class ProductHotDeal extends Component {
       )
   }
 
-  countTime = setInterval(() => {
-    let timeRest = new Date(`${this.state.time}`).getTime() - Date.now()
-    let day = Math.floor(timeRest / (1000 * 60 * 60 * 24))
-    let hours = Math.floor(
-      (timeRest % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    )
-    let minute = Math.floor((timeRest % (1000 * 60 * 60)) / (1000 * 60))
-    let seconds = Math.floor((timeRest % (1000 * 60)) / 1000)
+  componentDidUpdate() {
+    let countTime = setInterval(() => {
+      let timeRest = new Date(`${this.state.time}`).getTime() - Date.now()
+      let day = Math.floor(timeRest / (1000 * 60 * 60 * 24))
+      let hours = Math.floor(
+        (timeRest % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      )
+      let minute = Math.floor((timeRest % (1000 * 60 * 60)) / (1000 * 60))
+      let seconds = Math.floor((timeRest % (1000 * 60)) / 1000)
+  
+      this.setState({
+        seconds: seconds,
+        minute: minute,
+        hours: hours,
+        day: day
+      })
+      if (timeRest <= 0) clearInterval(countTime)
+    }, 1000)
+  }
 
-    this.setState({
-      seconds: seconds,
-      minute: minute,
-      hours: hours,
-      day: day
-    })
-    if (timeRest <= 0) clearInterval(this.countTime)
-  }, 1000)
+  
+
 
   render () {
     return (
