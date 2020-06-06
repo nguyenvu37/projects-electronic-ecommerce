@@ -54,7 +54,7 @@ const routes = [
         isProtected: false,
     },
     {
-        title: "Search Page | Ecommerce Electronic",
+        title: "Cart Page | Ecommerce Electronic",
         component: "./components/body/cart-page/cartPage",
         path: "/my-cart",
         isProtected: true,
