@@ -72,17 +72,17 @@ const CartPageItem = (props) => {
   let disabledProduct = data.status === 'paid' ? true : false;
   return (
   <tr>
-      <td>{index+1}</td>
+      <td className="num">{index+1}</td>
       <td className="img"><img src={require(`./../../../img/${data.img}`)} alt="" /></td>
       <td><Link to={`/detail/${data.idProduct}`} className="name-product">{data.name}</Link></td>
       <td
-        className='text-success'
+        className='text-success money new-price'
         style={{ fontSize: '20px', fontWeight: '600' }}
       >
         ${formatNumberUSD(data.newPrice)}
       </td>
       <td
-        className='text-secondary'
+        className='text-secondary old-price'
         style={{
           fontSize: '20px',
           fontWeight: '600',
@@ -93,7 +93,7 @@ const CartPageItem = (props) => {
       </td>
       <td className='d-flex justify-content-center'>
         <button
-          className='btn btn-primary '
+          className='btn btn-primary cal'
           style={{ width: '40px', height: '40px' }}
           onClick={() => onMinusQty()}
           disabled={disabledProduct}
@@ -101,6 +101,7 @@ const CartPageItem = (props) => {
           <i className='fas fa-minus'></i>
         </button>
         <input
+          className="inputQty"
           text='number'
           name='value'
           ref={refQty}
@@ -108,7 +109,7 @@ const CartPageItem = (props) => {
           disabled={disabledProduct}
         />
         <button
-          className='btn btn-danger'
+          className='btn btn-danger cal'
           style={{ width: '40px', height: '40px' }}
           onClick={() => onPlusQty()}
           disabled={disabledProduct}
@@ -117,16 +118,16 @@ const CartPageItem = (props) => {
         </button>
       </td>
       <td
-        className='text-success'
+        className='text-success money'
         style={{ fontSize: '20px', fontWeight: '600' }}
       >
         ${formatNumberUSD(total)}
       </td>
-      <td className={`text-uppercase ${statusClassName}`} style={{fontWeight:'600'}}>
+      <td className={`text-uppercase ${statusClassName} paid`} style={{fontWeight:'600'}}>
         {data.status}
       </td>
       <td>
-        <button className='btn btn-danger' onClick={() => onDeleteProduct(data.id)}>
+        <button className='btn btn-danger btn-del' onClick={() => onDeleteProduct(data.id)}>
           <i className='fas fa-trash-alt'></i>
         </button>
       </td>

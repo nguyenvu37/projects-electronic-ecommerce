@@ -242,9 +242,10 @@
 @media only screen and (max-width: 991px) {
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
 	.product {
-		height: 430px !important;
+		width: 300px;
+		height: 570px !important;
 	}
 	.product .add-to-cart .add-to-cart-btn {
 		height: 30px;

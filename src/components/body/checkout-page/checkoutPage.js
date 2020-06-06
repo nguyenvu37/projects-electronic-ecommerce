@@ -92,10 +92,10 @@ const CheckoutPage = props => {
                       <th>Image</th>
                       <th>Name Product</th>
                       <th>New Price</th>
-                      <th>Old Price</th>
+                      <th className="old-price">Old Price</th>
                       <th>Qty</th>
                       <th>Price</th>
-                      <th>Paid?</th>
+                      <th className="paid">Paid?</th>
                     </tr>
                   </thead>
                   <tbody>

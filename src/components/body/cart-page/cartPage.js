@@ -31,9 +31,7 @@ function CartPage (props) {
         if (data.length>0) {
           let total = data.map(item => item.total)
           totals.push(total)
-          console.log('totals', totals)
           subTotals = totals[0].reduce((a,b) => a+b,0)
-          console.log('subTotals', subTotals)
           setDataCart([...data])
         } else {
           totals = []
@@ -170,14 +168,14 @@ function CartPage (props) {
                 <table className='table table-bordered table-striped'>
                   <thead>
                     <tr className='bg-light'>
-                      <th>Num</th>
+                      <th className="num">Num</th>
                       <th>Image</th>
                       <th>Name Product</th>
-                      <th>New Price</th>
-                      <th>Old Price</th>
+                      <th className="new-price">New Price</th>
+                      <th className="old-price">Old Price</th>
                       <th>Qty</th>
                       <th>Price</th>
-                      <th>Paid?</th>
+                      <th className="paid">Paid?</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -199,7 +197,7 @@ function CartPage (props) {
                 </table>
                 <div className='sub-total d-flex justify-content-end'>
                   <h3
-                    className='text-uppercase mr-4'
+                    className='text-uppercase mr-4 subtotal'
                     style={{
                       fontWeight: '600',
                       textShadow: '4px 4px 38px rgba(0,0,0,0.6)'
@@ -208,7 +206,7 @@ function CartPage (props) {
                     Subtotal:
                   </h3>
                   <h4
-                    className='text-danger'
+                    className='text-danger sub'
                     style={{ fontWeight: '600', fontSize: '2.5rem' }}
                   >
                     {formatNumberUSD(subTotal)}

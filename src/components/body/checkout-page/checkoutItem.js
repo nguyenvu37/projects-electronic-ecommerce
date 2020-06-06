@@ -30,7 +30,7 @@ const CheckoutItem = (props) => {
             ${formatNumberUSD(data.newPrice)}
           </td>
           <td
-            className='text-secondary'
+            className='text-secondary old-price'
             style={{
               fontSize: '20px',
               fontWeight: '600',
@@ -48,7 +48,7 @@ const CheckoutItem = (props) => {
           >
             ${formatNumberUSD(total)}
           </td>
-          <td className={`text-uppercase ${statusClassName}`} style={{fontWeight:'600'}}>
+          <td className={`text-uppercase ${statusClassName} paid`} style={{fontWeight:'600'}}>
             {data.status}
           </td>
         </tr>

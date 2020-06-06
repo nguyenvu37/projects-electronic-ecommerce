@@ -75,3 +75,112 @@ tr td .name-product:hover {
 	top: 1px;
 	outline: none;
 }
+
+@media only screen and (max-width: 991px) {
+	h5 {
+		font-size: 0.9rem;
+	}
+	tr {
+		font-size: 0.7rem;
+	}
+
+	tr td .name-product {
+		font-size: 0.8rem;
+	}
+
+	tr td .name-product:hover {
+		font-size: 1rem;
+	}
+	tr .img img {
+		width: 30px;
+	}
+
+	tr .img:hover img {
+		width: 200px;
+		top: -100px;
+		left: -100px;
+	}
+
+	.old-price,
+	.paid {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	h5 {
+		font-size: 0.8rem;
+	}
+	tr {
+		font-size: 0.5rem;
+	}
+
+	tr td .name-product {
+		font-size: 0.7rem;
+	}
+
+	tr td .name-product:hover {
+		font-size: 0.8rem;
+	}
+	tr .img img {
+		width: 20px;
+	}
+
+	tr .img:hover img {
+		width: 100px;
+		top: -90px;
+		left: -50px;
+	}
+
+	.money {
+		font-size: 0.7rem !important;
+	}
+
+	.old-price,
+	.paid {
+		display: none;
+	}
+
+	.cal,
+	.inputQty {
+		width: 30px !important;
+		height: 25px !important;
+	}
+
+	.cal {
+		position: relative;
+	}
+
+	.cal i {
+		position: absolute;
+		font-size: 0.8rem;
+		top: 5px;
+		left: 7px;
+	}
+
+	.btn-del {
+		font-size: 0.7rem;
+	}
+
+	.subtotal h3 {
+		font-size: 1.2rem !important;
+	}
+
+	.subtotal .sub {
+		font-size: 1.5rem !important;
+	}
+
+	.num {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 572px) {
+	.card-header {
+		font-size: 1.5rem !important;
+	}
+
+	.new-price {
+		display: none;
+	}
+}
