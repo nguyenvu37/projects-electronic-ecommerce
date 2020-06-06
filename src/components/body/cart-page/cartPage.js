@@ -33,7 +33,7 @@ function CartPage (props) {
           totals.push(total)
           console.log('totals', totals)
           subTotals = totals[0].reduce((a,b) => a+b,0)
-
+          console.log('subTotals', subTotals)
           setDataCart([...data])
         } else {
           totals = []
@@ -51,15 +51,19 @@ function CartPage (props) {
   }, [])
 
   const onPlusQty = props => {
-    console.log('props', props)
     let subTotals = subTotal + props.price;
     setSubTotal(subTotals)
   }
 
   const onMinusQty = props => {
-    console.log('props', props)
-    let subTotals = subTotal - props.price;
-    setSubTotal(subTotals)
+    let subTotals = subTotal;
+    if (props.qty >= 1) {
+     subTotals = subTotal - props.price;
+     setSubTotal(subTotals)
+    } else {
+      subTotals = subTotal;
+      setSubTotal(subTotal);
+    }
   }
 
   const onDeleteProduct = id => {
@@ -69,7 +73,6 @@ function CartPage (props) {
       newDataCart.splice(index, 1)
       setDataCart(newDataCart)
       if (pagination().length <= 1) {
-        console.log('test pagination length')
         setCurrentPage(currentPage - 1)
         setIndexDataRender(currentPage - 1)
       }

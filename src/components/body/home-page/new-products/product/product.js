@@ -32,6 +32,12 @@ const Product = props => {
         },
       },
       {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 2
+        },
+      },
+      {
         breakpoint: 425,
         settings: {
           slidesToShow: 1

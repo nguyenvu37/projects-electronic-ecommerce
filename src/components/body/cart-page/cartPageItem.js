@@ -29,22 +29,21 @@ const CartPageItem = (props) => {
       qty: qty,
       total: total
      });
-    // callApi(`cart/${id}`, 'put', {...data, qty: qty, total: total})
   }
 
   function onMinusQty() {
     let qty = parseInt(qtyVlue);
     qty--;
-    if (qty <= 1) {
+    if (qty <= 0) {
       editQtyData(data.id, 1);
       setQtyVlue(1);
       setTotal(data.newPrice);
-      props.onMinusQty({qty: 1, price: data.newPrice});
+      props.onMinusQty({price :data.newPrice, qty: 0});
     } else {
       editQtyData(data.id, qty);
       setQtyVlue(qty);
       setTotal(data.newPrice * qty);
-      props.onMinusQty({qty: qty, price: data.newPrice});
+      props.onMinusQty({price: data.newPrice, qty: qty});
     }    
     
   }
@@ -55,7 +54,7 @@ const CartPageItem = (props) => {
     editQtyData(data.id, qty);
     setQtyVlue(qty);
     setTotal(data.newPrice * qty);
-    props.onPlusQty({qty: qty, price: data.newPrice})
+    props.onPlusQty({price: data.newPrice, qty: qty})
   }
 
   function onDeleteProduct(id) {
