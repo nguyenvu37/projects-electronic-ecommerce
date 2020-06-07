@@ -169,7 +169,7 @@ function CartPage (props) {
                   <thead>
                     <tr className='bg-light'>
                       <th className="num">Num</th>
-                      <th>Image</th>
+                      <th className="img">Image</th>
                       <th>Name Product</th>
                       <th className="new-price">New Price</th>
                       <th className="old-price">Old Price</th>

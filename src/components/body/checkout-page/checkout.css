@@ -56,3 +56,15 @@ tr td .name-product:hover {
 		font-size: 1.5rem !important;
 	}
 }
+
+@media only screen and (max-width: 525px) {
+	.img {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 426px) {
+	.card {
+		width: 362px;
+	}
+}

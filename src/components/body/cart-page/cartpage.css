@@ -182,6 +182,13 @@ tr td .name-product:hover {
 	}
 }
 
+@media only screen and (max-width: 767px) {
+	tr th,
+	tr td {
+		font-size: 0.8rem !important;
+	}
+}
+
 @media only screen and (max-width: 572px) {
 	.card-header {
 		font-size: 1.5rem !important;
@@ -189,5 +196,64 @@ tr td .name-product:hover {
 
 	.new-price {
 		display: none;
+	}
+}
+
+@media only screen and (max-width: 525px) {
+	tr th,
+	tr td {
+		font-size: 0.4rem;
+	}
+
+	tr .img {
+		display: none;
+	}
+
+	.card-header {
+		font-size: 1rem !important;
+	}
+
+	.sub-total h3 {
+		font-size: 1rem !important;
+	}
+
+	.sub-total h4 {
+		font-size: 1.5rem !important;
+	}
+
+	.checkout button {
+		font-size: 12px;
+		padding: 8px 15px;
+	}
+
+	.order-btn {
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	tr th,
+	tr td {
+		font-size: 0.2rem !important;
+	}
+
+	.card-header {
+		font-size: 0.8rem !important;
+	}
+
+	.money {
+		font-size: 0.6rem !important;
+	}
+
+	.btn-del {
+		font-size: 0.4rem;
+	}
+
+	.name-product {
+		font-size: 0.2rem !important;
+	}
+
+	.card {
+		width: 335px;
 	}
 }
