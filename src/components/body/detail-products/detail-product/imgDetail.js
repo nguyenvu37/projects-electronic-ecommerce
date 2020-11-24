@@ -1,37 +1,39 @@
-import React, { useState, useEffect } from 'react'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import { withRouter } from 'react-router-dom'
-import {db} from '../../../../firebase'
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { withRouter } from "react-router-dom";
+import { db } from "../../../../firebase";
 
-const ImgDetail = props => {
-  const [imgProducts, setImgProducts] = useState([])
+const ImgDetail = (props) => {
+  const [imgProducts, setImgProducts] = useState([]);
 
   useEffect(() => {
-    console.log('props.match', props.match.params.id)
+    console.log("props.match", props.match.params.id);
     const fetchData = async () => {
       let products = [];
       let data = [];
-      await db.collection(`products`)
+      await db
+        .collection(`products`)
         .get()
-        .then(snapshot => snapshot.docs.map(doc => {
-          products.push({...doc.data(), id: doc.id})
-          return true
-        }))
-        console.log('products', products)
+        .then((snapshot) =>
+          snapshot.docs.map((doc) => {
+            products.push({ ...doc.data(), id: doc.id });
+            return true;
+          })
+        );
 
-        products.filter(item => {
-          if(item.id === props.match.params.id) {
-            data.push({...item})
-          }
-          return true
-        })
-        console.log('data', data)
-        setImgProducts([...data[0].imgDetail])
-    }
-    fetchData()
-  }, [props.match.params.id])
+      products.filter((item) => {
+        if (item.id === props.match.params.id) {
+          data.push({ ...item });
+        }
+        return true;
+      });
+      console.log("data", data);
+      setImgProducts([...data[0].imgDetail]);
+    };
+    fetchData();
+  }, [props.match.params.id]);
 
   let settings = {
     dots: true,
@@ -39,19 +41,19 @@ const ImgDetail = props => {
     autoplay: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
-  }
+    slidesToScroll: 1,
+  };
   return (
     <Slider {...settings}>
       {imgProducts.map((item, i) => {
         return (
-          <div className='product-preview' key={i}>
-            <img src={require(`./../../../../img/${item}`)} alt='' />
+          <div className="product-preview" key={i}>
+            <img src={require(`./../../../../img/${item}`)} alt="" />
           </div>
-        )
+        );
       })}
     </Slider>
-  )
-}
+  );
+};
 
-export default withRouter(ImgDetail)
+export default withRouter(ImgDetail);

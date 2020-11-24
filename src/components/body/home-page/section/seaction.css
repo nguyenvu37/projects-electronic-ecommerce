@@ -7,7 +7,7 @@
 .shop .shop-img {
 	position: relative;
 	background-color: #e4e7ed;
-	z-index: -1;
+	overflow: hidden;
 }
 
 .shop .shop-img > img {
@@ -39,9 +39,8 @@
 	text-decoration: none;
 }
 
-.shop:hover .shop-body {
+.shop-img:hover .shop-body {
 	opacity: 0.8;
-	content: '';
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -54,4 +53,60 @@
 .shop .shop-body .cta-btn {
 	color: #fff;
 	text-transform: uppercase;
+}
+
+@media screen and (max-width: 1300px) {
+	.shop .shop-body h3 {
+		font-size: 0.9rem !important;
+	}
+
+	.shop .shop-body a {
+		font-size: 0.8rem;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	.shop .shop-body h3 {
+		font-size: 0.8rem !important;
+	}
+
+	.shop .shop-body a {
+		font-size: 0.7rem;
+	}
+
+	.shop-img:hover .shop-body {
+		transform: translate(0%);
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.shop .shop-body h3 {
+		font-size: 1.5rem !important;
+	}
+
+	.shop .shop-body a {
+		font-size: 1rem;
+	}
+
+	.shop .shop-body {
+		padding-top: 7rem;
+	}
+
+	.shop-img:hover .shop-body {
+		transform: translate(40%);
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.shop .shop-body h3 {
+		font-size: 1.2rem !important;
+	}
+
+	.shop .shop-body a {
+		font-size: 0.8rem;
+	}
+
+	.shop .shop-body {
+		padding-top: 2rem;
+	}
 }

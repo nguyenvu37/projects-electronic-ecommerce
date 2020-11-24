@@ -22,7 +22,6 @@ tr td .name-product {
 tr td .name-product:hover {
 	color: rgb(51, 0, 117);
 	text-decoration: none;
-	font-size: 1.2rem;
 	transition: all 0.2s;
 }
 

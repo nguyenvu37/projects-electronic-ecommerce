@@ -2,7 +2,6 @@ import React from "react";
 
 const MyPagination = (props) => {
   let maxPage = Math.ceil(props.data.length / props._limit);
-  console.log("maxPage :>> ", maxPage);
   return maxPage <= 1 ? (
     ""
   ) : (
@@ -11,8 +10,6 @@ const MyPagination = (props) => {
         width: "180px",
         marginLeft: "auto",
       }}
-      aria-label="Page navigation example"
-      className=""
     >
       <ul className="pagination">
         <li className="page-item">

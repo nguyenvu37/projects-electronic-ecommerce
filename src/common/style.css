@@ -4,7 +4,7 @@
 
 .product {
 	position: relative;
-	margin: 15px 15px;
+	margin: 15px 0 50px;
 	box-shadow: 0px 0px 0px 0px #e4e7ed, 0px 0px 0px 1px #e4e7ed;
 	transition: 0.2s all;
 	height: 550px !important;
@@ -31,7 +31,8 @@
 }
 
 .product .product-img > img {
-	width: 100%;
+	width: 90%;
+	margin: 0 auto;
 }
 
 .product .product-img .product-label {
@@ -239,9 +240,6 @@
 	visibility: visible;
 }
 
-@media only screen and (max-width: 991px) {
-}
-
 @media only screen and (max-width: 767px) {
 	.product {
 		width: 300px;
@@ -270,9 +268,5 @@
 }
 
 @media only screen and (max-width: 576px) {
-	.product {
-		height: 600px !important;
-		width: 350px;
-		margin: auto;
-	}
+
 }
